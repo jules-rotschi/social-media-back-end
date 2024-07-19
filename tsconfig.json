@@ -1,0 +1,29 @@
+{
+  "extends": "@adonisjs/tsconfig/tsconfig.app.json",
+  "compilerOptions": {
+    "rootDir": "./",
+    "outDir": "./build",
+    "paths": {
+      "#controllers/*": ["./src/infrastructure/controllers/*.js"],
+      "#exceptions/*": ["./src/infrastructure/exceptions/*.js"],
+      "#models/*": ["./src/infrastructure/models/*.js"],
+      "#mails/*": ["./src/infrastructure/mails/*.js"],
+      "#services/*": ["./src/infrastructure/services/*.js"],
+      "#listeners/*": ["./src/infrastructure/listeners/*.js"],
+      "#events/*": ["./src/infrastructure/events/*.js"],
+      "#middleware/*": ["./src/infrastructure/middleware/*.js"],
+      "#validators/*": ["./src/infrastructure/validators/*.js"],
+      "#providers/*": ["./providers/*.js"],
+      "#policies/*": ["./src/infrastructure/policies/*.js"],
+      "#abilities/*": ["./src/infrastructure/abilities/*.js"],
+      "#entities/*": ["./src/domain/entities/*.js"],
+      "#usecases/*": ["./src/domain/usecases/*.js"],
+      "#repositories/*": ["./src/infrastructure/repositories/*.js"],
+      "#contracts/*": ["./src/domain/contracts/*.js"],
+      "#database/*": ["./database/*.js"],
+      "#tests/*": ["./tests/*.js"],
+      "#start/*": ["./start/*.js"],
+      "#config/*": ["./config/*.js"]
+    }
+  },
+}
