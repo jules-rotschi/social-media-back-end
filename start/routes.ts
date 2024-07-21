@@ -8,11 +8,11 @@
 */
 
 import router from '@adonisjs/core/services/router'
-import UsersController from '../src/infrastructure/controllers/users_controller.js'
+import UsersController from '#controllers/users_controller'
 
-// router.get("/", async () => {
-//   return "Hello"
-// })
+router.post("/signup", [UsersController, 'signup']);
+router.get("/users/:id", [UsersController, 'getById']);
 
-router.post("/signup", [UsersController, 'signup'])
-router.get("/users/:id", [UsersController, 'getById'])
+// router.get("/", () => {
+//   return "It works !"
+// });

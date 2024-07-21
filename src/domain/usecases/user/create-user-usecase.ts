@@ -1,6 +1,6 @@
 import { inject } from "@adonisjs/core";
 import { UserRepository } from "../../contracts/repositories/user-repository.js";
-import { UserEntity } from "../../entities/user.js";
+import { CreateUserDto } from "#contracts/dto/user/create-user-dto";
 
 @inject()
 export default class CreateUserUsecase {
@@ -10,7 +10,7 @@ export default class CreateUserUsecase {
     this.userRepository = userRepository;
   }
 
-  async handle(user: UserEntity) {
+  async handle(user: CreateUserDto) {
     this.userRepository.create(user);    
   }
 }

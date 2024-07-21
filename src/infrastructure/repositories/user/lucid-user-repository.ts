@@ -1,12 +1,11 @@
+import { CreateUserDto } from "#contracts/dto/user/create-user-dto";
 import UserModel from "#models/user";
 import { UserRepository } from "../../../domain/contracts/repositories/user-repository.js";
 import { User } from "../../../domain/entities/user.js";
 
 export class LucidUserRepository implements UserRepository {
-  async create(user: User): Promise<void> {
-    const createdUser = await UserModel.create(user);
-    console.log(createdUser);
-    
+  async create(user: CreateUserDto): Promise<void> {
+    await UserModel.create(user);
   }
 
   async getById(id: User["id"]): Promise<User> {

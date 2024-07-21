@@ -1,4 +1,4 @@
-import { User } from "../src/domain/entities/user.js"
+import { User } from "#entities/user"
 
 interface Database {
   users: User[];

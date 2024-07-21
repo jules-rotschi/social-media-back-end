@@ -1,5 +1,5 @@
 import type { ApplicationService } from '@adonisjs/core/types'
-import { UserRepository } from '../src/domain/contracts/repositories/user-repository.js';
+import { UserRepository } from '#contracts/repositories/user-repository';
 
 export default class AppProvider {
   constructor(protected app: ApplicationService) {}
