@@ -2,8 +2,7 @@ import { inject } from '@adonisjs/core';
 import type { HttpContext } from '@adonisjs/core/http'
 import CreateUserUsecase from '../../domain/usecases/user/create-user-usecase.js';
 import GetUserUsecase from '../../domain/usecases/user/get-user-usecase.js';
-import { createUserValidator } from '#validators/user-validator';
-import { CreateUserDto } from '#contracts/dto/user/create-user-dto';
+import { createUserValidator } from '#validators/user-validators';
 
 @inject()
 export default class UsersController {
@@ -15,12 +14,8 @@ export default class UsersController {
   
   async signup({ request }: HttpContext) {
     const data = request.body().user;
-    try {
-      const payload = await createUserValidator.validate(data);
-      await this.createUserUsecase.handle(payload);
-    } catch(err) {
-      return err
-    }
+    const payload = await createUserValidator.validate(data);
+    await this.createUserUsecase.handle(payload);
   }
 
   async getById({ request }: HttpContext) {
