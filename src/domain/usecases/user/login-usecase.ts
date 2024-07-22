@@ -1,17 +1,16 @@
 import { inject } from "@adonisjs/core";
 import { UserRepository } from "../../contracts/repositories/user-repository.js";
-import { CreateUserDto } from "#contracts/dto/user/create-user-dto";
+import { User, UserUID } from "#entities/user";
 
 @inject()
-export default class CreateUserUsecase {
+export default class LoginUsecase {
   private userRepository: UserRepository;
 
   constructor(userRepository: UserRepository) {
     this.userRepository = userRepository;
   }
 
-  async handle(user: CreateUserDto) {
-    await this.userRepository.create(user);
-    return this.userRepository.login(user.username, user.password);
+  async handle(uid: UserUID, password: User["password"]) {
+    return this.userRepository.login(uid, password);
   }
 }

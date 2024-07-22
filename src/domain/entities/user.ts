@@ -9,3 +9,5 @@ export interface User {
   description: string | null;
   picture: string | null;
 }
+
+export type UserUID = User["email"] | User["username"];
