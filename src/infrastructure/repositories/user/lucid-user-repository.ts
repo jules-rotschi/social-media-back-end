@@ -1,16 +1,24 @@
 import { CreateUserDto } from "#contracts/dto/user/create-user-dto";
 import UserModel from "#models/user";
 import { UserRepository } from "../../../domain/contracts/repositories/user-repository.js";
-import { User, UserUID } from "../../../domain/entities/user.js";
+import { User } from "../../../domain/entities/user.js";
 
 export class LucidUserRepository implements UserRepository {
-  async create(user: CreateUserDto): Promise<void> {
-    await UserModel.create(user);
+  async create(user: CreateUserDto): Promise<User> {
+    return await UserModel.create(user);
   }
-
+  
   async getById(id: User["id"]): Promise<User> {
     const user = await UserModel.findOrFail(id);
     return user;
+  }
+  
+  async getByUsername(username: User["username"]): Promise<User> {
+    throw new Error("Method not implemented.");
+  }
+  
+  async getByEmail(email: User["email"]): Promise<User> {
+    return await UserModel.findByOrFail('email', email);
   }
 
   async update(userId: User["id"], updatedUser: Partial<User>): Promise<void> {
@@ -21,11 +29,5 @@ export class LucidUserRepository implements UserRepository {
   async delete(userId: User["id"]): Promise<void> {
     const user = await UserModel.findOrFail(userId);
     user.delete();
-  }
-
-  async login(uid: UserUID, password: User["password"]) {
-    const user = await UserModel.verifyCredentials(uid, password);
-    const token = await UserModel.accessTokens.create(user);
-    return token;
   }
 }

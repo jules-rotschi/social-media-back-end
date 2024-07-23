@@ -26,7 +26,7 @@ async function unique(
 
   if (row) {
     field.report(
-      'The {{ field }} field is not unique',
+      'Le a valeur du champ {{ field }} existe déjà.',
       'unique',
       field
     )

@@ -8,11 +8,15 @@
 */
 
 import router from '@adonisjs/core/services/router'
-import UsersController from '#controllers/users_controller'
 import { middleware } from './kernel.js';
+import AuthController from '#controllers/auth_controller';
 
-router.post("/signup", [UsersController, 'signup']);
-router.post("/login", [UsersController, 'login']);
+router.post("/signup", [AuthController, 'signup']);
+router.post("/login", [AuthController, 'login']);
+router.post("/forgotten-password", [AuthController, 'sendResetPasswordEmail']);
+router.get("/reset-password/:userId", [AuthController, 'resetPasswordForm']).as('reset_password_form');
+router.post("/reset-password", [AuthController, 'resetPassword']);
+router.on("/password-successfully-reset").render('password-successfully-reset').as('password-successfully-reset');
 
 router.get("/", () => {
   return "It works !"

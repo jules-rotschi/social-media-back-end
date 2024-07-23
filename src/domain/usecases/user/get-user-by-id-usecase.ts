@@ -3,7 +3,7 @@ import { UserRepository } from "../../contracts/repositories/user-repository.js"
 import { User } from "../../entities/user.js";
 
 @inject()
-export default class GetUserUsecase {
+export default class GetUserByIdUsecase {
   constructor(private userRepository: UserRepository) {}
 
   async handle(id: User["id"]) {
