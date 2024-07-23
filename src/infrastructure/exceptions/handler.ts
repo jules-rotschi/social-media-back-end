@@ -1,7 +1,7 @@
 import app from '@adonisjs/core/services/app'
 import { HttpContext, ExceptionHandler } from '@adonisjs/core/http'
 import * as vinejs from '@vinejs/vine';
-import { errors } from '@adonisjs/auth';
+import * as auth from '@adonisjs/auth';
 
 
 export default class HttpExceptionHandler extends ExceptionHandler {
@@ -22,11 +22,11 @@ export default class HttpExceptionHandler extends ExceptionHandler {
       return
     }
 
-    if (error instanceof errors.E_INVALID_CREDENTIALS) {
-      return ctx
-        .response
+    if (error instanceof auth.errors.E_INVALID_CREDENTIALS) {
+      ctx.response
         .status(error.status)
-        .send(error.getResponseMessage(error, ctx))
+        .send(error.getResponseMessage(error, ctx));
+      return
     }
 
     return super.handle(error, ctx)

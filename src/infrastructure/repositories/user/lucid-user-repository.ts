@@ -4,8 +4,8 @@ import { UserRepository } from "../../../domain/contracts/repositories/user-repo
 import { User } from "../../../domain/entities/user.js";
 
 export class LucidUserRepository implements UserRepository {
-  async create(user: CreateUserDto): Promise<User> {
-    return await UserModel.create(user);
+  async create(user: CreateUserDto): Promise<void> {
+    await UserModel.create(user);
   }
   
   async getById(id: User["id"]): Promise<User> {
@@ -14,11 +14,12 @@ export class LucidUserRepository implements UserRepository {
   }
   
   async getByUsername(username: User["username"]): Promise<User> {
+    username;
     throw new Error("Method not implemented.");
   }
   
-  async getByEmail(email: User["email"]): Promise<User> {
-    return await UserModel.findByOrFail('email', email);
+  async getByEmail(email: User["email"]): Promise<User | null> {
+    return await UserModel.findBy('email', email);
   }
 
   async update(userId: User["id"], updatedUser: Partial<User>): Promise<void> {

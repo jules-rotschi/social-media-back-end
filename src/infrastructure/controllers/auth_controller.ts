@@ -1,11 +1,13 @@
 import CreateUserUsecase from "#usecases/user/create-user-usecase";
 import LoginUsecase from "#usecases/auth/login-usecase";
 import SendResetPasswordEmailUsecase from "#usecases/auth/send-reset-password-email-usecase";
-import { createUserValidator } from "#validators/user-validators";
 import { HttpContext } from "@adonisjs/core/http";
-import { loginValidator, sendResetPasswordEmailValidator } from "#validators/auth-validators";
 import { inject } from "@adonisjs/core";
 import UpdateUserUsecase from "#usecases/user/update-user-usecase";
+import { signupValidator } from "#validators/signup-validator";
+import { loginValidator } from "#validators/login-validator";
+import { sendResetPasswordEmailValidator } from "#validators/send-reset-password-email-validator";
+import { resetPasswordValidator } from "#validators/reset-password-validator";
 
 @inject()
 export default class AuthController {
@@ -19,9 +21,9 @@ export default class AuthController {
 
   async signup({ request }: HttpContext) {
     const data = request.only(["user"]).user;
-    const payload = await createUserValidator.validate(data);
-    const user = await this.createUserUsecase.handle(payload);
-    return this.loginUsecase.handle(user.username, user.password);
+    const payload = await signupValidator.validate(data);
+    await this.createUserUsecase.handle(payload);
+    return await this.loginUsecase.handle(payload.username, payload.password);
   }
 
   async login({ request }: HttpContext) {
@@ -33,24 +35,28 @@ export default class AuthController {
   async sendResetPasswordEmail({ request }: HttpContext) {
     const data = request.only(["email"]);
     const { email } = await sendResetPasswordEmailValidator.validate(data);
-    this.sendResetPasswordEmailUsecase.handle(email);
+    return this.sendResetPasswordEmailUsecase.handle(email);
   }
 
-  async resetPasswordForm({ request, response, view }: HttpContext) {
+  async getResetPasswordForm({ request, response, view }: HttpContext) {
     if (!request.hasValidSignature()) {
-      return response.badRequest('Invalid or expired URL')
+      return response.badRequest('L\'URL est invalide ou expiré.')
     }
-    const userId = request.params().userId;
-    view.render('reset-password-form', { userId });
+    const { userId } = request.params();
+    return view.render('reset-password-form', { userId });
   }
 
   async resetPassword({ request, response }: HttpContext) {
-    const data = request.only(['userId', 'password', 'passwordConfirmation']);
-    const payload = data;
+    if (!request.hasValidSignature()) {
+      return response.badRequest('L\'URL est invalide ou expiré.')
+    }
+    const userIdFromParams = parseInt(request.params().userId);
+    const formData = request.only(['password', 'passwordConfirmation']);
+    const { userId, password } = await resetPasswordValidator.validate({ userId: userIdFromParams, ...formData });
     await this.updateUserUsecase.handle(
-      payload.userId,
-      payload.password
+      userId,
+      { password }
     );
-    response.redirect().toRoute('password-successfully-reset');
+    return response.redirect().toRoute('password-successfully-reset');
   }
 }

@@ -15,8 +15,8 @@ export class AdonisEmailRepository implements EmailRepository {
     await mail.send((message) => {
       message
         .to(user.email)
-        .from('support@example.com')
-        .subject('Reset your password')
+        .from('support@jules-rotschi.com')
+        .subject('Réinitialisation de votre mot de passe')
         .htmlView('emails/forgotten-password', { user, url })
     })
   }

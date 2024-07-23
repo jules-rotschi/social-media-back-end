@@ -11,6 +11,6 @@ export default class CreateUserUsecase {
   }
 
   async handle(user: CreateUserDto) {
-    return await this.userRepository.create(user);
+    await this.userRepository.create(user);
   }
 }

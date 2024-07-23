@@ -41,7 +41,7 @@ export default class UserModel extends compose(BaseModel, AuthFinder) {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
 
-  static accessTokens = DbAccessTokensProvider.forModel(UserModel)
+  static accessTokens = DbAccessTokensProvider.forModel(UserModel);
 
   currentAccessToken?: AccessToken;
 }

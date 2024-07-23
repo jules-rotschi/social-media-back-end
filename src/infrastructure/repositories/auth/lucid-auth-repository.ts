@@ -6,7 +6,14 @@ import { AccessToken } from "@adonisjs/auth/access_tokens";
 export class LucidAuthRepository implements AuthRepository {
   async login(uid: UserUID, password: User["password"]): Promise<AccessToken> {
     const user = await UserModel.verifyCredentials(uid, password);
-    const token = await UserModel.accessTokens.create(user);
+    let existingTokens = await UserModel.accessTokens.all(user)
+    
+    while (existingTokens.length) {
+      await UserModel.accessTokens.delete(user, existingTokens[0].identifier);
+      existingTokens = await UserModel.accessTokens.all(user)
+    }
+
+    const token = await UserModel.accessTokens.create(user);    
     return token;
   }
 }
