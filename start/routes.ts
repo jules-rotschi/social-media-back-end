@@ -19,6 +19,6 @@ router.get("/reset-password/:userId", [AuthController, 'getResetPasswordForm']).
 router.post("/reset-password/:userId", [AuthController, 'resetPassword']).as('reset-password');
 router.on("/password-successfully-reset").render('password-successfully-reset').as('password-successfully-reset');
 
-router.get("/", () => {
+router.get("/", ({}) => {
   return "You are connected"
 }).use(middleware.auth({ guards: ["api"] }));

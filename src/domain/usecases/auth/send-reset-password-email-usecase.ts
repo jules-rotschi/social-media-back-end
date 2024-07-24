@@ -28,8 +28,6 @@ export default class SendResetPasswordEmailUsecase {
       expiresIn: 600000
     });
     
-    // this.emailRepository.sendResetPasswordEmail(user, signedURL);
-
-    return signedURL;
+    this.emailRepository.sendResetPasswordEmail(user, signedURL);
   }
 }
