@@ -2,7 +2,6 @@ import vine, { SimpleMessagesProvider } from "@vinejs/vine";
 
 export const resetPasswordValidator = vine.compile(
   vine.object({
-    userId: vine.number(),
     password: vine.string().minLength(12).escape().confirmed({ confirmationField: "passwordConfirmation" })
   })
 )
@@ -14,7 +13,6 @@ const messages = {
 };
 
 const fields = {
-  userId: 'identifiant',
   password: 'mot de passe'
 }
 

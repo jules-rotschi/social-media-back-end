@@ -1,62 +1,61 @@
-import CreateUserUsecase from "#usecases/user/create-user-usecase";
-import LoginUsecase from "#usecases/auth/login-usecase";
-import SendResetPasswordEmailUsecase from "#usecases/auth/send-reset-password-email-usecase";
+import { LoginUsecase } from "#usecases/auth/login_usecase";
+import { SendResetPasswordEmailUsecase } from "#usecases/auth/send_reset_password_email_usecase";
 import { HttpContext } from "@adonisjs/core/http";
 import { inject } from "@adonisjs/core";
-import UpdateUserUsecase from "#usecases/user/update-user-usecase";
-import { signupValidator } from "#validators/signup-validator";
-import { loginValidator } from "#validators/login-validator";
-import { sendResetPasswordEmailValidator } from "#validators/send-reset-password-email-validator";
-import { resetPasswordValidator } from "#validators/reset-password-validator";
+import { signupValidator } from "#validators/signup_validator";
+import { loginValidator } from "#validators/login_validator";
+import { sendResetPasswordEmailValidator } from "#validators/send_reset_password_email_validator";
+import { resetPasswordValidator } from "#validators/reset_password_validator";
+import { SignupUsecase } from "#usecases/auth/signup_usecase";
+import { ResetPasswordUsecase } from "#usecases/auth/reset_password_usecase";
 
 @inject()
 export default class AuthController {
 
   constructor(
-    private createUserUsecase: CreateUserUsecase,
+    private signupUsecase: SignupUsecase,
     private loginUsecase: LoginUsecase,
     private sendResetPasswordEmailUsecase: SendResetPasswordEmailUsecase,
-    private updateUserUsecase: UpdateUserUsecase
+    private resetPasswordUsecase: ResetPasswordUsecase
   ) {}
 
   async signup({ request }: HttpContext) {
-    const data = request.only(["user"]).user;
+    const data = request.input('data');
     const payload = await signupValidator.validate(data);
-    await this.createUserUsecase.handle(payload);
-    return await this.loginUsecase.handle(payload.username, payload.password);
+    return await this.signupUsecase.handle(payload);
   }
 
   async login({ request }: HttpContext) {
-    const data = request.only(['uid', 'password']);
+    const data = request.input('data');
     const payload = await loginValidator.validate(data);
-    return await this.loginUsecase.handle(payload.uid, payload.password);
+    return await this.loginUsecase.handle(payload);
   }
 
   async sendResetPasswordEmail({ request }: HttpContext) {
-    const data = request.only(["email"]);
-    const { email } = await sendResetPasswordEmailValidator.validate(data);
-    return this.sendResetPasswordEmailUsecase.handle(email);
+    const data = request.input('data');
+    const payload = await sendResetPasswordEmailValidator.validate(data);
+    return this.sendResetPasswordEmailUsecase.handle(payload.email);
   }
 
   async getResetPasswordForm({ request, response, view }: HttpContext) {
     if (!request.hasValidSignature()) {
-      return response.badRequest('L\'URL est invalide ou expiré.')
+      return response.badRequest('L\'URL est invalide ou expiré.');
     }
-    const { userId } = request.params();
-    return view.render('reset-password-form', { userId });
+    const userId = request.param('userId');
+    return view.render('reset_password_form', { userId });
   }
 
   async resetPassword({ request, response }: HttpContext) {
     if (!request.hasValidSignature()) {
       return response.badRequest('L\'URL est invalide ou expiré.')
     }
-    const userIdFromParams = parseInt(request.params().userId);
-    const formData = request.only(['password', 'passwordConfirmation']);
-    const { userId, password } = await resetPasswordValidator.validate({ userId: userIdFromParams, ...formData });
-    await this.updateUserUsecase.handle(
+    const data = request.input('data');
+    const payload = await resetPasswordValidator.validate(data);
+    const userId = parseInt(request.param('userId'));
+    await this.resetPasswordUsecase.handle(
       userId,
-      { password }
+      payload.password
     );
-    return response.redirect().toRoute('password-successfully-reset');
+    return response.redirect().toRoute('auth.passwordSuccessfullyReset');
   }
 }

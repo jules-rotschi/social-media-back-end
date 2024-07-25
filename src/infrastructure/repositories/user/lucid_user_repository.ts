@@ -1,6 +1,6 @@
-import { CreateUserDto } from "#contracts/dto/user/create-user-dto";
+import { CreateUserDto } from "#contracts/dto/user/signup_user_dto";
 import UserModel from "#models/user";
-import { UserRepository } from "../../../domain/contracts/repositories/user-repository.js";
+import { UserRepository } from "../../../domain/contracts/repositories/user_repository.js";
 import { User } from "../../../domain/entities/user.js";
 
 export class LucidUserRepository implements UserRepository {
@@ -11,11 +11,6 @@ export class LucidUserRepository implements UserRepository {
   async getById(id: User["id"]): Promise<User> {
     const user = await UserModel.findOrFail(id);
     return user;
-  }
-  
-  async getByUsername(username: User["username"]): Promise<User> {
-    username;
-    throw new Error("Method not implemented.");
   }
   
   async getByEmail(email: User["email"]): Promise<User | null> {

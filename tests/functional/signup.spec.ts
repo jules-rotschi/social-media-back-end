@@ -5,7 +5,7 @@ test.group('Signup', () => {
 
   test('bad request', async ({ client, assert }) => {
     const response = await client.post('/signup').json({
-      user: {
+      data: {
         username: "john$",
         email: "johnatexample.com",
         password: "password",
@@ -44,7 +44,7 @@ test.group('Signup', () => {
 
   test('successful signup', async ({ client, assert }) => {
     const response = await client.post('/signup').json({
-      user: {
+      data: {
         username: "john",
         email: "john@example.com",
         fullName: "John",
@@ -52,6 +52,7 @@ test.group('Signup', () => {
         passwordConfirmation: "This is my password",
       }
     });
+    
     response.assertStatus(200);
     assert.exists(response.body().token);
     const createdUserInDatabase = await db.from('users').select("username").where("email", "john@example.com").first();
@@ -60,7 +61,7 @@ test.group('Signup', () => {
 
   test('username already exists', async ({ client, assert }) => {
     const response = await client.post('/signup').json({
-      user: {
+      data: {
         username: "john",
         email: "john.doe@example.com",
         fullName: "John Doe",

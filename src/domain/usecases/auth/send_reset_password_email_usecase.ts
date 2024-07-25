@@ -1,12 +1,12 @@
 import { inject } from "@adonisjs/core";
-import { EmailRepository } from "#contracts/repositories/email-repository";
+import { EmailRepository } from "#contracts/repositories/email_repository";
 import { User } from "#entities/user";
-import { UserRepository } from "#contracts/repositories/user-repository";
+import { UserRepository } from "#contracts/repositories/user_repository";
 import router from "@adonisjs/core/services/router";
 import RowNotFoundException from "#exceptions/row_not_found_exception";
 
 @inject()
-export default class SendResetPasswordEmailUsecase {
+export class SendResetPasswordEmailUsecase {
 
   constructor(
     private userRepository: UserRepository,
@@ -21,12 +21,12 @@ export default class SendResetPasswordEmailUsecase {
     }
 
     const signedURL = router
-    .builder()
-    .prefixUrl('http://localhost:3333')
-    .params([user.id])
-    .makeSigned('reset-password-form', {
-      expiresIn: 600000
-    });
+      .builder()
+      .prefixUrl('http://localhost:3333')
+      .params([user.id])
+      .makeSigned('auth.getResetPasswordForm', {
+        expiresIn: 600000
+      });
     
     this.emailRepository.sendResetPasswordEmail(user, signedURL);
   }

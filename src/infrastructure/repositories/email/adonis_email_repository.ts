@@ -1,4 +1,4 @@
-import { EmailRepository } from "#contracts/repositories/email-repository";
+import { EmailRepository } from "#contracts/repositories/email_repository";
 import { User } from "#entities/user";
 import mail from "@adonisjs/mail/services/main";
 
@@ -17,7 +17,7 @@ export class AdonisEmailRepository implements EmailRepository {
         .to(user.email)
         .from('support@jules-rotschi.com')
         .subject('Réinitialisation de votre mot de passe')
-        .htmlView('emails/forgotten-password', { user, url })
+        .htmlView('emails/forgotten_password', { user, url })
     })
   }
 }

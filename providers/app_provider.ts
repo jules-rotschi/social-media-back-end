@@ -1,7 +1,7 @@
 import type { ApplicationService } from '@adonisjs/core/types'
-import { UserRepository } from '#contracts/repositories/user-repository';
-import { AuthRepository } from '#contracts/repositories/auth-repository';
-import { EmailRepository } from '#contracts/repositories/email-repository';
+import { UserRepository } from '#contracts/repositories/user_repository';
+import { AuthRepository } from '#contracts/repositories/auth_repository';
+import { EmailRepository } from '#contracts/repositories/email_repository';
 
 export default class AppProvider {
   constructor(protected app: ApplicationService) {}
@@ -15,9 +15,9 @@ export default class AppProvider {
    * The container bindings have booted
    */
   async boot() {
-    const { LucidUserRepository } = await import("#repositories/user/lucid-user-repository");
-    const { LucidAuthRepository } = await import("#repositories/auth/lucid-auth-repository");
-    const { AdonisEmailRepository } = await import("#repositories/email/adonis-email-repository");
+    const { LucidUserRepository } = await import("#repositories/user/lucid_user_repository");
+    const { LucidAuthRepository } = await import("#repositories/auth/lucid_auth_repository");
+    const { AdonisEmailRepository } = await import("#repositories/email/adonis_email_repository");
     
     this.app.container.bind(UserRepository, () => {
       return this.app.container.make(LucidUserRepository);

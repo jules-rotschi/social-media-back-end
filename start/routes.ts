@@ -15,9 +15,9 @@ router.post("/signup", [AuthController, 'signup']);
 router.post("/login", [AuthController, 'login']);
 
 router.post("/forgotten-password", [AuthController, 'sendResetPasswordEmail']);
-router.get("/reset-password/:userId", [AuthController, 'getResetPasswordForm']).as('reset-password-form');
-router.post("/reset-password/:userId", [AuthController, 'resetPassword']).as('reset-password');
-router.on("/password-successfully-reset").render('password-successfully-reset').as('password-successfully-reset');
+router.get("/reset-password/:userId", [AuthController, 'getResetPasswordForm']).as('auth.getResetPasswordForm');
+router.post("/reset-password/:userId", [AuthController, 'resetPassword']).as('auth.resetPassword');
+router.on("/password-successfully-reset").render('password_successfully_reset').as('auth.passwordSuccessfullyReset');
 
 router.get("/", ({}) => {
   return "You are connected"

@@ -4,8 +4,10 @@ test.group('Login', () => {
 
   test('invalid credentials', async ({ client }) => {
     const response = await client.post('/login').json({
-      uid: "jules_rotschi",
-      password: "My password"
+      data: {
+        uid: "jules_rotschi",
+        password: "My password"
+      }
     });
     response.assertStatus(400);    
     response.assertTextIncludes("Invalid user credentials");
@@ -13,8 +15,10 @@ test.group('Login', () => {
 
   test('successful login', async ({ client, assert }) => {
     const response = await client.post('/login').json({
-      uid: "jules_rotschi",
-      password: "This is my password"
+      data: {
+        uid: "jules_rotschi",
+        password: "This is my password"
+      }
     });
     response.assertStatus(200);
     assert.exists(response.body().token);

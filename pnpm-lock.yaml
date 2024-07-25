@@ -14,6 +14,9 @@ importers:
       '@adonisjs/core':
         specifier: ^6.12.1
         version: 6.12.1(@adonisjs/assembler@7.7.0(typescript@5.4.5))(@vinejs/vine@2.1.0)(edge.js@6.0.2)
+      '@adonisjs/cors':
+        specifier: ^2.2.1
+        version: 2.2.1(@adonisjs/core@6.12.1(@adonisjs/assembler@7.7.0(typescript@5.4.5))(@vinejs/vine@2.1.0)(edge.js@6.0.2))
       '@adonisjs/lucid':
         specifier: ^21.1.0
         version: 21.1.0(@adonisjs/assembler@7.7.0(typescript@5.4.5))(@adonisjs/core@6.12.1(@adonisjs/assembler@7.7.0(typescript@5.4.5))(@vinejs/vine@2.1.0)(edge.js@6.0.2))(luxon@3.4.4)(pg@8.12.0)
@@ -175,6 +178,12 @@ packages:
         optional: true
       edge.js:
         optional: true
+
+  '@adonisjs/cors@2.2.1':
+    resolution: {integrity: sha512-qnrSG8ylpgTeZBOYEN3yXxY0PBUEg1KGDhgn9VKVFGxLKT+o9GGVOSZxUK3wG341B1zB9w5vuZN1z4M0Jitb6g==}
+    engines: {node: '>=18.16.0'}
+    peerDependencies:
+      '@adonisjs/core': ^6.2.0
 
   '@adonisjs/encryption@6.0.2':
     resolution: {integrity: sha512-37XqVPsZi6zXMbC0Me1/qlcTP0uE+KAtYOFx7D7Tvtz377NL/6gqxqgpW/BopgOSD+CVDXjzO/Wx3M2UrbkJRQ==}
@@ -3570,6 +3579,10 @@ snapshots:
       '@adonisjs/assembler': 7.7.0(typescript@5.4.5)
       '@vinejs/vine': 2.1.0
       edge.js: 6.0.2
+
+  '@adonisjs/cors@2.2.1(@adonisjs/core@6.12.1(@adonisjs/assembler@7.7.0(typescript@5.4.5))(@vinejs/vine@2.1.0)(edge.js@6.0.2))':
+    dependencies:
+      '@adonisjs/core': 6.12.1(@adonisjs/assembler@7.7.0(typescript@5.4.5))(@vinejs/vine@2.1.0)(edge.js@6.0.2)
 
   '@adonisjs/encryption@6.0.2':
     dependencies:
