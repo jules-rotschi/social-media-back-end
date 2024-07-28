@@ -53,7 +53,7 @@ export default class AuthController {
     if (!request.hasValidSignature()) {
       return response.badRequest('L\'URL est invalide ou expiré.')
     }
-    const data = request.input('data');
+    const data = request.only(['password', 'passwordConfirmation']);
     const payload = await resetPasswordValidator.validate(data);
     const userId = parseInt(request.param('userId'));
     await this.resetPasswordUsecase.handle(

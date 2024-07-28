@@ -29,7 +29,9 @@ export class SendResetPasswordEmailUsecase {
       .makeSigned('auth.getResetPasswordForm', {
         expiresIn: 600000
       });
+
+    return signedURL;
     
-    this.emailRepository.sendResetPasswordEmail(user, signedURL);
+    // this.emailRepository.sendResetPasswordEmail(user, signedURL);
   }
 }

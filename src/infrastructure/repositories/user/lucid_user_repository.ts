@@ -39,7 +39,7 @@ export class LucidUserRepository implements UserRepository {
 
   async update(userId: User["id"], updatedUser: Partial<User>): Promise<void> {
     const user = await UserModel.findOrFail(userId);
-    user.merge(updatedUser).save();
+    return await user.merge(updatedUser).save();    
   }
 
   // async delete(userId: User["id"]): Promise<void> {
