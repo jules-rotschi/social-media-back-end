@@ -9,8 +9,15 @@ test.group('Login', () => {
         password: "My password"
       }
     });
-    response.assertStatus(400);    
-    response.assertTextIncludes("Invalid user credentials");
+    response.assertStatus(400);
+    response.assertBody({
+      errors: [
+        {
+          message: "Identifiant ou mot de passe incorrect",
+          type: "auth"
+        }
+      ]
+    });
   });
 
   test('successful login', async ({ client, assert }) => {
@@ -21,9 +28,8 @@ test.group('Login', () => {
       }
     });
     response.assertStatus(200);
-    assert.exists(response.body().token);
-    const token = response.body().token;
-
+    assert.exists(response.body().data.token);
+    const token = response.body().data.token;
     const protectedRouteResponse = await client.get('/').headers({ "authorization": `Bearer ${token}` });
     protectedRouteResponse.assertStatus(200);
     protectedRouteResponse.assertTextIncludes("You are connected");

@@ -4,7 +4,8 @@
     "rootDir": "./",
     "outDir": "./build",
     "paths": {
-      "#entities/*": ["./src/domain/entities/*.js"],
+      "#entities/*": ["./src/domain/models/entities/*.js"],
+      "#value_objects/*": ["./src/domain/models/value_objects/*.js"],
       "#contracts/*": ["./src/domain/contracts/*.js"],
       "#usecases/*": ["./src/domain/usecases/*.js"],
       "#models/*": ["./src/infrastructure/models/*.js"],

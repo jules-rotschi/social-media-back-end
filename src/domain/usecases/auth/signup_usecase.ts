@@ -1,6 +1,7 @@
-import { SignupUserDto } from "#contracts/dto/user/signup_user_dto";
+import { SignupUserInputDTO } from "#contracts/dto/user/signup_user_input_dto";
 import { AuthRepository } from "#contracts/repositories/auth_repository";
 import { UserRepository } from "#contracts/repositories/user_repository";
+import { UserFactory } from "#entities/user";
 import { inject } from "@adonisjs/core";
 
 @inject()
@@ -11,8 +12,11 @@ export class SignupUsecase {
     private authRepository: AuthRepository
   ) {}
 
-  async handle(user: SignupUserDto) {
+  async handle(userToSignup: SignupUserInputDTO) {
+    const user = new UserFactory().create(userToSignup);
     await this.userRepository.create(user);
-    return await this.authRepository.getToken(user.username, user.password);
+    return {
+      token: await this.authRepository.getToken(user.username, user.password)
+    }
   }
 }

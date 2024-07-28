@@ -4,8 +4,8 @@ import { uniqueRule } from './rules/unique.js'
 export const signupValidator = vine.compile(
   vine.object({
     username: vine.string().trim().minLength(2).regex(new RegExp('^[a-z0-9_.\-]+$')).escape().use(uniqueRule({ table: 'users', column: 'username' })),
-    fullName: vine.string().trim().minLength(1).escape(),
     email: vine.string().email().use(uniqueRule({ table: 'users', column: 'email' })),
+    fullName: vine.string().trim().minLength(1).escape(),
     password: vine.string().minLength(12).escape().confirmed({ confirmationField: "passwordConfirmation" }),
   })
 );

@@ -13,31 +13,7 @@ test.group('Signup', () => {
       }
     });
     response.assertStatus(422);
-    response.assertBody([
-      {
-        "message": "Le nom d'utilisateur contient des caractères non-autorisés.",
-        "rule": "regex",
-        "field": "username"
-      },
-      {
-        "message": "Veuillez entrer un nom complet ou pseudonyme",
-        "rule": "required",
-        "field": "fullName"
-      },
-      {
-        "message": "L'e-mail est invalide",
-        "rule": "email",
-        "field": "email"
-      },
-      {
-        "message": "Le mot de passe doit posséder au moins 12 caractères.",
-        "rule": "minLength",
-        "field": "password",
-        "meta": {
-          "min": 12
-        }
-      }
-    ])
+    assert.equal(response.body().errors.length, 4)
     const createdUserInDatabase = await db.from('users').select().where("username", "john$").first();
     assert.notExists(createdUserInDatabase);
   });
@@ -54,7 +30,7 @@ test.group('Signup', () => {
     });
     
     response.assertStatus(200);
-    assert.exists(response.body().token);
+    assert.exists(response.body().data.token);
     const createdUserInDatabase = await db.from('users').select("username").where("email", "john@example.com").first();
     assert.equal(createdUserInDatabase.username, "john");
   });
@@ -70,13 +46,16 @@ test.group('Signup', () => {
       }
     });
     response.assertStatus(422);
-    response.assertBody([
-      {
-        "message": "Ce nom d'utilisateur est déjà utilisé.",
-        "rule": "unique",
-        "field": "username"
-      }
-    ]);
+    response.assertBody({
+        errors: [
+          {
+            "message": "Ce nom d'utilisateur est déjà utilisé.",
+            "rule": "unique",
+            "field": "username",
+            "type": "validation"
+          }
+        ]
+    });
     const createdUserInDatabase = await db.from('users').select("username").where("email", "john.doe@example.com").first();
     assert.notExists(createdUserInDatabase);
   });

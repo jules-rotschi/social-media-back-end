@@ -9,7 +9,14 @@ test.group('Forgotten password', () => {
       }
     });
     response.assertStatus(404);
-    response.assertTextIncludes("Cet e-mail n'est associé à aucun compte.");
+    response.assertBody({
+      errors: [
+        {
+          message: "Cet e-mail n'est associé à aucun compte",
+          type: "domain"
+        }
+      ]
+    });
   })
 
   test('sent e-mail', async ({ client }) => {
