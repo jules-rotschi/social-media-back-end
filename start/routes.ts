@@ -22,3 +22,9 @@ router.on("/password-successfully-reset").render('password_successfully_reset').
 router.get("/", ({}) => {
   return "You are connected"
 }).use(middleware.auth({ guards: ["api"] }));
+
+router.group(() => {
+  router.get("/", ({}) => {
+    return "You are connected as anonymous"
+  })
+}).prefix('/anonymous')

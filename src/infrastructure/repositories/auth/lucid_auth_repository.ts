@@ -22,10 +22,8 @@ export class LucidAuthRepository implements AuthRepository {
     const lucidToken: AccessToken = await UserModel.accessTokens.create(user);
     const tokenString = lucidToken.toJSON().token;
 
-    if (tokenString) {
-      return tokenString;
-    }
-
+    if (tokenString) return tokenString;
+    
     throw new Error("No token after authentication");
   }
 }

@@ -4,19 +4,17 @@ export class Email {
 
   constructor(
     private readonly identifier: string,
-    private readonly domainName: string,
-    private readonly domainExtension: string
+    private readonly domain: string
   ) {}
 
   toString(): string {
-    return `${this.identifier}@${this.domainName}.${this.domainExtension}`;
+    return `${this.identifier}@${this.domain}`;
   }
 
   equals(email: Email) {
     return (
       this.identifier === email.identifier
-      && this.domainName === email.domainName
-      && this.domainExtension === email.domainExtension
+      && this.domain === email.domain
     )
   }
 }
@@ -31,16 +29,9 @@ export class EmailFactory {
       throw new DomainException("Format de l'e-mail invalide");
     }
 
-    const [domainName, domainExtension, ...domainErrors] = domain.split(".");
-
-    if (!domainName || !domainExtension || domainErrors.length) {
-      throw new DomainException("Format de l'e-mail invalide");
-    }
-
     return new Email(
       identifier,
-      domainName,
-      domainExtension
+      domain
     );
   }
 }
