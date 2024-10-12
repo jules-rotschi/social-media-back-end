@@ -1,0 +1,25 @@
+<div class="{{'radio-button' + (customClass ? ` ${customClass}` : '')}}">
+  <input
+    type="radio"
+    id="{{id || 'radio-id'}}"
+    @if(name)
+      name="{{name}}"
+    @end
+    @if(value)
+      value="{{value}}"
+    @end
+    @if(tabIndex)
+      tabindex="{{tabIndex}}"
+    @end
+    @if(disabled)
+      disabled
+    @end
+    @if(required)
+      required
+    @end
+    @if(defaultChecked)
+      checked
+    @end
+  />
+  <label for="{{id || 'radio-id'}}">{{label || "Label"}}</label>
+</div>

@@ -1,0 +1,110 @@
+@use '../abstract' as *;
+@use '../tokens' as *;
+
+.checkbox {
+
+  html[data-theme="light"] & {
+    --bl-static-background-color: #{$bl-sys-color-primary-700};
+    --bl-dynamic-background-color: #{$bl-sys-color-primary-600};
+    --bl-hover-dynamic-background-color: #{$bl-sys-color-primary-500};
+    --bl-active-dynamic-background-color: #{$bl-sys-color-primary-400};
+    --bl-disabled-foreground-color: #{$bl-sys-color-neutral-400};
+  }
+
+  html[data-theme="dark"] & {
+    --bl-static-background-color: #{$bl-sys-color-secondary-500};
+    --bl-dynamic-background-color: #{$bl-sys-color-secondary-400};
+    --bl-hover-dynamic-background-color: #{$bl-sys-color-secondary-300};
+    --bl-active-dynamic-background-color: #{$bl-sys-color-secondary-200};
+    --bl-disabled-foreground-color: #{$bl-sys-color-neutral-700};
+  }
+  
+  display: flex;
+  
+  input {
+    cursor: pointer;
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.25rem;
+    position: relative;
+    display: grid;
+    place-content: center;
+    @include dynamic-background-gradient(var(--bl-static-background-color), var(--bl-dynamic-background-color), "top");
+    @include appearence-transition(all);
+    
+    &::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      background-color: var(--bl-background-color);
+    }
+
+    &:not(:disabled):hover {
+      @include dynamic-background-gradient(var(--bl-static-background-color), var(--bl-hover-dynamic-background-color), "top");
+    }
+
+    &:not(:disabled):active {
+      @include dynamic-background-gradient(var(--bl-static-background-color), var(--bl-active-dynamic-background-color), "top");
+    }
+    
+    &:checked {
+      border: none;
+      @include dynamic-background-gradient(
+        var(--bl-static-background-color),
+        var(--bl-dynamic-background-color),
+        "top"
+      );
+
+      &:not(:disabled):hover {
+        @include dynamic-background-gradient(
+          var(--bl-static-background-color),
+          var(--bl-hover-dynamic-background-color),
+          "top"
+        );
+      }
+
+      &:not(:disabled):active {
+        @include dynamic-background-gradient(
+          var(--bl-static-background-color),
+          var(--bl-active-dynamic-background-color),
+          "top"
+        );
+      }
+      
+      &::before {
+        width: 0;
+        height: 0;
+      }
+      
+      &::after {
+        content: "";
+        height: 8.75px;
+        width: 5.75px;
+        border: solid $bl-sys-color-light;
+        border-width: 0 1.5px 1.5px 0;
+        transform: rotate(45deg);
+        position: relative;
+        top: -1px;
+      }
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+  
+  label {
+    @include label-2();
+    cursor: pointer;
+    padding-left: 0.5rem;
+    color: var(--bl-foreground-color);
+  }
+
+  & > input:disabled + label {
+    color: var(--bl-disabled-foreground-color);
+    cursor: not-allowed;
+  }
+}

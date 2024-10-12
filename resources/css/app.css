@@ -1,0 +1,1860 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Trirong:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  list-style: none;
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border-radius: 0;
+  text-transform: none;
+}
+
+button:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+input[type=number] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+select {
+  border: none;
+  background: none;
+  word-wrap: normal;
+  -webkit-appearance: none;
+  appearance: none;
+}
+select:disabled {
+  opacity: 1;
+}
+
+address {
+  font-style: normal;
+}
+
+hr {
+  color: inherit;
+}
+
+html[data-theme=light] *::selection {
+  background-color: #3D4BC6;
+  color: #F1F1F3;
+}
+html[data-theme=dark] *::selection {
+  background-color: #F6AE3B;
+  color: #191A1E;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+body {
+  display: block;
+  overflow-x: hidden;
+  font-size: 16px;
+  background-color: var(--bl-background-color);
+  color: var(--bl-foreground-color);
+}
+html[data-theme=light] body {
+  --bl-background-color: #ffffff;
+  --bl-foreground-color: #191A1E;
+}
+html[data-theme=dark] body {
+  --bl-background-color: #191A1E;
+  --bl-foreground-color: #ffffff;
+}
+
+h1 {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+}
+@media (min-width: 600px) {
+  h1 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}
+
+h2 {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+}
+@media (min-width: 600px) {
+  h2 {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+}
+
+h3 {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+}
+@media (min-width: 600px) {
+  h3 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
+
+h4 {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+}
+@media (min-width: 600px) {
+  h4 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
+
+h5 {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+}
+@media (min-width: 600px) {
+  h5 {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+}
+
+h6, dt {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+}
+@media (min-width: 600px) {
+  h6, dt {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+}
+
+p, li, dd, div, span {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+}
+@media (min-width: 600px) {
+  p, li, dd, div, span {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+p > strong, p > b, li > strong, li > b, dd > strong, dd > b, div > strong, div > b, span > strong, span > b {
+  font-weight: 700;
+}
+
+legend {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+}
+@media (min-width: 600px) {
+  legend {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+}
+
+small {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 0.625rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+}
+@media (min-width: 600px) {
+  small {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}
+
+abbr[title] {
+  cursor: help;
+}
+
+sub,
+sup {
+  position: relative;
+  font-size: 0.75em;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace;
+  font-size: 1em;
+}
+
+img,
+svg {
+  vertical-align: middle;
+}
+
+caption {
+  text-align: left;
+}
+
+label {
+  display: inline-block;
+}
+
+textarea {
+  resize: vertical;
+}
+
+fieldset {
+  min-width: 0;
+}
+
+output {
+  display: inline-block;
+}
+
+summary {
+  cursor: pointer;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+[role=button],
+button:not(:disabled),
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled) {
+  cursor: pointer;
+}
+
+[disabled] {
+  pointer-events: cursor;
+}
+
+span.icon {
+  display: grid;
+}
+
+:root {
+  --bl-header-height: 7rem;
+  --bl-footer-height: 7rem;
+  --bl-page-margin: 3%;
+  --bl-column-width: calc(100% / 12);
+  --bl-gutter-width: 0.5rem;
+}
+@media (min-width: 600px) {
+  :root {
+    --bl-gutter-width: 1rem;
+  }
+}
+@media (min-width: 1440px) {
+  :root {
+    --bl-gutter-width: 1.5rem;
+  }
+}
+
+.page-header {
+  height: var(--bl-header-height);
+}
+
+.page-footer {
+  height: var(--bl-footer-height);
+}
+
+.page-content {
+  min-height: calc(100dvh - var(--bl-header-height) - var(--bl-footer-height));
+}
+
+.container {
+  width: 100%;
+  padding-inline: var(--bl-page-margin);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  vertical-align: middle;
+  color: var(--label-color);
+  background-color: rgba(129, 131, 150, 0.2);
+}
+html[data-theme=light] .badge {
+  --label-color: #3C3D48;
+}
+html[data-theme=dark] .badge {
+  --label-color: #CCCDD5;
+}
+.badge .label {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  vertical-align: middle;
+  transition: all 100ms ease-out;
+  --bl-outlined-hover-background-color: transparent;
+  --bl-outlined-active-background-color: rgba(129, 131, 150, 0.2);
+}
+html[data-theme=light] .button {
+  --bl-outlined-border-color: #B3B5C0;
+  --bl-outlined-hover-border-color: #1C2362;
+  --bl-outlined-active-border-color: #1C2362;
+  --bl-outlined-foreground-color: primary-900;
+  --bl-ghost-color: #1C2362;
+  --bl-ghost-hover-background-color: rgba(18, 18, 18, 0.1);
+  --bl-ghost-active-background-color: rgba(18, 18, 18, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #1C2362;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #3D4BC6;
+}
+html[data-theme=dark] .button {
+  --bl-outlined-border-color: #535564;
+  --bl-outlined-hover-border-color: #3D4BC6;
+  --bl-outlined-active-border-color: #3D4BC6;
+  --bl-outlined-foreground-color: neutral-050;
+  --bl-ghost-color: #EFF0FA;
+  --bl-ghost-hover-background-color: rgba(255, 255, 255, 0.1);
+  --bl-ghost-active-background-color: rgba(255, 255, 255, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #3D4BC6;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #1C2362;
+}
+.button.button-neutral {
+  --bl-outlined-hover-background-color: transparent;
+  --bl-outlined-active-background-color: rgba(129, 131, 150, 0.2);
+}
+html[data-theme=light] .button.button-neutral {
+  --bl-outlined-border-color: #B3B5C0;
+  --bl-outlined-hover-border-color: #1C2362;
+  --bl-outlined-active-border-color: #1C2362;
+  --bl-outlined-foreground-color: primary-900;
+  --bl-ghost-color: #1C2362;
+  --bl-ghost-hover-background-color: rgba(18, 18, 18, 0.1);
+  --bl-ghost-active-background-color: rgba(18, 18, 18, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #1C2362;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #3D4BC6;
+}
+html[data-theme=dark] .button.button-neutral {
+  --bl-outlined-border-color: #535564;
+  --bl-outlined-hover-border-color: #3D4BC6;
+  --bl-outlined-active-border-color: #3D4BC6;
+  --bl-outlined-foreground-color: neutral-050;
+  --bl-ghost-color: #EFF0FA;
+  --bl-ghost-hover-background-color: rgba(255, 255, 255, 0.1);
+  --bl-ghost-active-background-color: rgba(255, 255, 255, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #3D4BC6;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #1C2362;
+}
+.button.button-primary {
+  --bl-outlined-hover-background-color: transparent;
+  --bl-outlined-active-background-color: rgba(129, 131, 150, 0.2);
+}
+html[data-theme=light] .button.button-primary {
+  --bl-outlined-border-color: #B3B5C0;
+  --bl-outlined-hover-border-color: #1C2362;
+  --bl-outlined-active-border-color: #1C2362;
+  --bl-outlined-foreground-color: primary-900;
+  --bl-ghost-color: #1C2362;
+  --bl-ghost-hover-background-color: rgba(18, 18, 18, 0.1);
+  --bl-ghost-active-background-color: rgba(18, 18, 18, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #1C2362;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #3D4BC6;
+}
+html[data-theme=dark] .button.button-primary {
+  --bl-outlined-border-color: #535564;
+  --bl-outlined-hover-border-color: #3D4BC6;
+  --bl-outlined-active-border-color: #3D4BC6;
+  --bl-outlined-foreground-color: neutral-050;
+  --bl-ghost-color: #EFF0FA;
+  --bl-ghost-hover-background-color: rgba(255, 255, 255, 0.1);
+  --bl-ghost-active-background-color: rgba(255, 255, 255, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #3D4BC6;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #1C2362;
+}
+.button.button-info {
+  --bl-outlined-hover-background-color: transparent;
+  --bl-outlined-active-background-color: rgba(129, 131, 150, 0.2);
+}
+html[data-theme=light] .button.button-info {
+  --bl-outlined-border-color: #B3B5C0;
+  --bl-outlined-hover-border-color: #1C2362;
+  --bl-outlined-active-border-color: #1C2362;
+  --bl-outlined-foreground-color: primary-900;
+  --bl-ghost-color: #1C2362;
+  --bl-ghost-hover-background-color: rgba(18, 18, 18, 0.1);
+  --bl-ghost-active-background-color: rgba(18, 18, 18, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #1C2362;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #3D4BC6;
+}
+html[data-theme=dark] .button.button-info {
+  --bl-outlined-border-color: #535564;
+  --bl-outlined-hover-border-color: #3D4BC6;
+  --bl-outlined-active-border-color: #3D4BC6;
+  --bl-outlined-foreground-color: neutral-050;
+  --bl-ghost-color: #EFF0FA;
+  --bl-ghost-hover-background-color: rgba(255, 255, 255, 0.1);
+  --bl-ghost-active-background-color: rgba(255, 255, 255, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #3D4BC6;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #1C2362;
+}
+.button.button-success {
+  --bl-outlined-hover-background-color: transparent;
+  --bl-outlined-active-background-color: rgba(129, 131, 150, 0.2);
+}
+html[data-theme=light] .button.button-success {
+  --bl-outlined-border-color: #B3B5C0;
+  --bl-outlined-hover-border-color: #1C2362;
+  --bl-outlined-active-border-color: #1C2362;
+  --bl-outlined-foreground-color: primary-900;
+  --bl-ghost-color: #1C2362;
+  --bl-ghost-hover-background-color: rgba(18, 18, 18, 0.1);
+  --bl-ghost-active-background-color: rgba(18, 18, 18, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #1C2362;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #3D4BC6;
+}
+html[data-theme=dark] .button.button-success {
+  --bl-outlined-border-color: #535564;
+  --bl-outlined-hover-border-color: #3D4BC6;
+  --bl-outlined-active-border-color: #3D4BC6;
+  --bl-outlined-foreground-color: neutral-050;
+  --bl-ghost-color: #EFF0FA;
+  --bl-ghost-hover-background-color: rgba(255, 255, 255, 0.1);
+  --bl-ghost-active-background-color: rgba(255, 255, 255, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #3D4BC6;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #1C2362;
+}
+.button.button-warning {
+  --bl-outlined-hover-background-color: transparent;
+  --bl-outlined-active-background-color: rgba(129, 131, 150, 0.2);
+}
+html[data-theme=light] .button.button-warning {
+  --bl-outlined-border-color: #B3B5C0;
+  --bl-outlined-hover-border-color: #1C2362;
+  --bl-outlined-active-border-color: #1C2362;
+  --bl-outlined-foreground-color: primary-900;
+  --bl-ghost-color: #1C2362;
+  --bl-ghost-hover-background-color: rgba(18, 18, 18, 0.1);
+  --bl-ghost-active-background-color: rgba(18, 18, 18, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #1C2362;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #3D4BC6;
+}
+html[data-theme=dark] .button.button-warning {
+  --bl-outlined-border-color: #535564;
+  --bl-outlined-hover-border-color: #3D4BC6;
+  --bl-outlined-active-border-color: #3D4BC6;
+  --bl-outlined-foreground-color: neutral-050;
+  --bl-ghost-color: #EFF0FA;
+  --bl-ghost-hover-background-color: rgba(255, 255, 255, 0.1);
+  --bl-ghost-active-background-color: rgba(255, 255, 255, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #3D4BC6;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #1C2362;
+}
+.button.button-critical {
+  --bl-outlined-hover-background-color: transparent;
+  --bl-outlined-active-background-color: rgba(129, 131, 150, 0.2);
+}
+html[data-theme=light] .button.button-critical {
+  --bl-outlined-border-color: #B3B5C0;
+  --bl-outlined-hover-border-color: #1C2362;
+  --bl-outlined-active-border-color: #1C2362;
+  --bl-outlined-foreground-color: primary-900;
+  --bl-ghost-color: #1C2362;
+  --bl-ghost-hover-background-color: rgba(18, 18, 18, 0.1);
+  --bl-ghost-active-background-color: rgba(18, 18, 18, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #1C2362;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #3D4BC6;
+}
+html[data-theme=dark] .button.button-critical {
+  --bl-outlined-border-color: #535564;
+  --bl-outlined-hover-border-color: #3D4BC6;
+  --bl-outlined-active-border-color: #3D4BC6;
+  --bl-outlined-foreground-color: neutral-050;
+  --bl-ghost-color: #EFF0FA;
+  --bl-ghost-hover-background-color: rgba(255, 255, 255, 0.1);
+  --bl-ghost-active-background-color: rgba(255, 255, 255, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #3D4BC6;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #1C2362;
+}
+.button.button-filled {
+  color: var(--bl-filled-foreground-color);
+  background-color: var(--bl-filled-background-color);
+}
+.button.button-filled:not(:disabled):hover {
+  background-color: var(--bl-filled-hover-background-color);
+}
+.button.button-filled:not(:disabled):active {
+  background-color: var(--bl-filled-active-background-color);
+}
+.button.button-outlined {
+  outline: 1px solid;
+  outline-color: var(--bl-outlined-border-color);
+  outline-offset: -1px;
+  color: var(--bl-outlined-foreground-color);
+  background: none;
+}
+.button.button-outlined:not(:disabled):hover {
+  outline-width: 2px;
+  outline-color: var(--bl-outlined-hover-border-color);
+  background-color: var(--bl-outlined-hover-background-color);
+}
+.button.button-outlined:not(:disabled):active {
+  outline-width: 2px;
+  outline-color: var(--bl-outlined-active-border-color);
+  background-color: var(--bl-outlined-active-background-color);
+}
+.button.button-ghost {
+  padding: 0.25rem 0.5rem;
+  color: var(--bl-ghost-color);
+  background-color: transparent;
+}
+.button.button-ghost:not(:disabled):hover {
+  background-color: var(--bl-ghost-hover-background-color);
+}
+.button.button-ghost:not(:disabled):active {
+  background-color: var(--bl-ghost-active-background-color);
+}
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.button .label {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.small-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  vertical-align: middle;
+  transition: all 100ms ease-out;
+  --bl-outlined-hover-background-color: transparent;
+  --bl-outlined-active-background-color: rgba(129, 131, 150, 0.2);
+}
+html[data-theme=light] .small-button {
+  --bl-outlined-border-color: #B3B5C0;
+  --bl-outlined-hover-border-color: #1C2362;
+  --bl-outlined-active-border-color: #1C2362;
+  --bl-outlined-foreground-color: primary-900;
+  --bl-ghost-color: #1C2362;
+  --bl-ghost-hover-background-color: rgba(18, 18, 18, 0.1);
+  --bl-ghost-active-background-color: rgba(18, 18, 18, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #1C2362;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #3D4BC6;
+}
+html[data-theme=dark] .small-button {
+  --bl-outlined-border-color: #535564;
+  --bl-outlined-hover-border-color: #3D4BC6;
+  --bl-outlined-active-border-color: #3D4BC6;
+  --bl-outlined-foreground-color: neutral-050;
+  --bl-ghost-color: #EFF0FA;
+  --bl-ghost-hover-background-color: rgba(255, 255, 255, 0.1);
+  --bl-ghost-active-background-color: rgba(255, 255, 255, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #3D4BC6;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #1C2362;
+}
+.small-button.button-neutral {
+  --bl-outlined-hover-background-color: transparent;
+  --bl-outlined-active-background-color: rgba(129, 131, 150, 0.2);
+}
+html[data-theme=light] .small-button.button-neutral {
+  --bl-outlined-border-color: #B3B5C0;
+  --bl-outlined-hover-border-color: #1C2362;
+  --bl-outlined-active-border-color: #1C2362;
+  --bl-outlined-foreground-color: primary-900;
+  --bl-ghost-color: #1C2362;
+  --bl-ghost-hover-background-color: rgba(18, 18, 18, 0.1);
+  --bl-ghost-active-background-color: rgba(18, 18, 18, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #1C2362;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #3D4BC6;
+}
+html[data-theme=dark] .small-button.button-neutral {
+  --bl-outlined-border-color: #535564;
+  --bl-outlined-hover-border-color: #3D4BC6;
+  --bl-outlined-active-border-color: #3D4BC6;
+  --bl-outlined-foreground-color: neutral-050;
+  --bl-ghost-color: #EFF0FA;
+  --bl-ghost-hover-background-color: rgba(255, 255, 255, 0.1);
+  --bl-ghost-active-background-color: rgba(255, 255, 255, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #3D4BC6;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #1C2362;
+}
+.small-button.button-primary {
+  --bl-outlined-hover-background-color: transparent;
+  --bl-outlined-active-background-color: rgba(129, 131, 150, 0.2);
+}
+html[data-theme=light] .small-button.button-primary {
+  --bl-outlined-border-color: #B3B5C0;
+  --bl-outlined-hover-border-color: #1C2362;
+  --bl-outlined-active-border-color: #1C2362;
+  --bl-outlined-foreground-color: primary-900;
+  --bl-ghost-color: #1C2362;
+  --bl-ghost-hover-background-color: rgba(18, 18, 18, 0.1);
+  --bl-ghost-active-background-color: rgba(18, 18, 18, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #1C2362;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #3D4BC6;
+}
+html[data-theme=dark] .small-button.button-primary {
+  --bl-outlined-border-color: #535564;
+  --bl-outlined-hover-border-color: #3D4BC6;
+  --bl-outlined-active-border-color: #3D4BC6;
+  --bl-outlined-foreground-color: neutral-050;
+  --bl-ghost-color: #EFF0FA;
+  --bl-ghost-hover-background-color: rgba(255, 255, 255, 0.1);
+  --bl-ghost-active-background-color: rgba(255, 255, 255, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #3D4BC6;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #1C2362;
+}
+.small-button.button-info {
+  --bl-outlined-hover-background-color: transparent;
+  --bl-outlined-active-background-color: rgba(129, 131, 150, 0.2);
+}
+html[data-theme=light] .small-button.button-info {
+  --bl-outlined-border-color: #B3B5C0;
+  --bl-outlined-hover-border-color: #1C2362;
+  --bl-outlined-active-border-color: #1C2362;
+  --bl-outlined-foreground-color: primary-900;
+  --bl-ghost-color: #1C2362;
+  --bl-ghost-hover-background-color: rgba(18, 18, 18, 0.1);
+  --bl-ghost-active-background-color: rgba(18, 18, 18, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #1C2362;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #3D4BC6;
+}
+html[data-theme=dark] .small-button.button-info {
+  --bl-outlined-border-color: #535564;
+  --bl-outlined-hover-border-color: #3D4BC6;
+  --bl-outlined-active-border-color: #3D4BC6;
+  --bl-outlined-foreground-color: neutral-050;
+  --bl-ghost-color: #EFF0FA;
+  --bl-ghost-hover-background-color: rgba(255, 255, 255, 0.1);
+  --bl-ghost-active-background-color: rgba(255, 255, 255, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #3D4BC6;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #1C2362;
+}
+.small-button.button-success {
+  --bl-outlined-hover-background-color: transparent;
+  --bl-outlined-active-background-color: rgba(129, 131, 150, 0.2);
+}
+html[data-theme=light] .small-button.button-success {
+  --bl-outlined-border-color: #B3B5C0;
+  --bl-outlined-hover-border-color: #1C2362;
+  --bl-outlined-active-border-color: #1C2362;
+  --bl-outlined-foreground-color: primary-900;
+  --bl-ghost-color: #1C2362;
+  --bl-ghost-hover-background-color: rgba(18, 18, 18, 0.1);
+  --bl-ghost-active-background-color: rgba(18, 18, 18, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #1C2362;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #3D4BC6;
+}
+html[data-theme=dark] .small-button.button-success {
+  --bl-outlined-border-color: #535564;
+  --bl-outlined-hover-border-color: #3D4BC6;
+  --bl-outlined-active-border-color: #3D4BC6;
+  --bl-outlined-foreground-color: neutral-050;
+  --bl-ghost-color: #EFF0FA;
+  --bl-ghost-hover-background-color: rgba(255, 255, 255, 0.1);
+  --bl-ghost-active-background-color: rgba(255, 255, 255, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #3D4BC6;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #1C2362;
+}
+.small-button.button-warning {
+  --bl-outlined-hover-background-color: transparent;
+  --bl-outlined-active-background-color: rgba(129, 131, 150, 0.2);
+}
+html[data-theme=light] .small-button.button-warning {
+  --bl-outlined-border-color: #B3B5C0;
+  --bl-outlined-hover-border-color: #1C2362;
+  --bl-outlined-active-border-color: #1C2362;
+  --bl-outlined-foreground-color: primary-900;
+  --bl-ghost-color: #1C2362;
+  --bl-ghost-hover-background-color: rgba(18, 18, 18, 0.1);
+  --bl-ghost-active-background-color: rgba(18, 18, 18, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #1C2362;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #3D4BC6;
+}
+html[data-theme=dark] .small-button.button-warning {
+  --bl-outlined-border-color: #535564;
+  --bl-outlined-hover-border-color: #3D4BC6;
+  --bl-outlined-active-border-color: #3D4BC6;
+  --bl-outlined-foreground-color: neutral-050;
+  --bl-ghost-color: #EFF0FA;
+  --bl-ghost-hover-background-color: rgba(255, 255, 255, 0.1);
+  --bl-ghost-active-background-color: rgba(255, 255, 255, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #3D4BC6;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #1C2362;
+}
+.small-button.button-critical {
+  --bl-outlined-hover-background-color: transparent;
+  --bl-outlined-active-background-color: rgba(129, 131, 150, 0.2);
+}
+html[data-theme=light] .small-button.button-critical {
+  --bl-outlined-border-color: #B3B5C0;
+  --bl-outlined-hover-border-color: #1C2362;
+  --bl-outlined-active-border-color: #1C2362;
+  --bl-outlined-foreground-color: primary-900;
+  --bl-ghost-color: #1C2362;
+  --bl-ghost-hover-background-color: rgba(18, 18, 18, 0.1);
+  --bl-ghost-active-background-color: rgba(18, 18, 18, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #1C2362;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #3D4BC6;
+}
+html[data-theme=dark] .small-button.button-critical {
+  --bl-outlined-border-color: #535564;
+  --bl-outlined-hover-border-color: #3D4BC6;
+  --bl-outlined-active-border-color: #3D4BC6;
+  --bl-outlined-foreground-color: neutral-050;
+  --bl-ghost-color: #EFF0FA;
+  --bl-ghost-hover-background-color: rgba(255, 255, 255, 0.1);
+  --bl-ghost-active-background-color: rgba(255, 255, 255, 0.2);
+  --bl-filled-foreground-color: #ffffff;
+  --bl-filled-background-color: #3D4BC6;
+  --bl-filled-hover-background-color: #2C379A;
+  --bl-filled-active-background-color: #1C2362;
+}
+.small-button.button-filled {
+  color: var(--bl-filled-foreground-color);
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-filled-static-background-color));
+  background-color: var(--bl-filled-dynamic-background-color);
+}
+html[data-theme=dark] .small-button.button-filled.button-neutral {
+  background: linear-gradient(var(--bl-filled-static-background-color), rgba(0, 0, 0, 0));
+  background-color: var(--bl-filled-dynamic-background-color);
+}
+.small-button.button-filled:not(:disabled):hover {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-filled-static-background-color));
+  background-color: var(--bl-filled-hover-dynamic-background-color);
+}
+html[data-theme=dark] .small-button.button-filled:not(:disabled):hover.button-neutral {
+  background: linear-gradient(var(--bl-filled-static-background-color), rgba(0, 0, 0, 0));
+  background-color: var(--bl-filled-hover-dynamic-background-color);
+}
+.small-button.button-filled:not(:disabled):active {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-filled-static-background-color));
+  background-color: var(--bl-filled-active-dynamic-background-color);
+}
+html[data-theme=dark] .small-button.button-filled:not(:disabled):active.button-neutral {
+  background: linear-gradient(var(--bl-filled-static-background-color), rgba(0, 0, 0, 0));
+  background-color: var(--bl-filled-active-dynamic-background-color);
+}
+.small-button.button-outlined {
+  border: 1px solid;
+  border-color: var(--bl-outlined-border-color);
+  color: var(--bl-outlined-foreground-color);
+  background: none;
+}
+.small-button.button-outlined:not(:disabled):hover {
+  border-color: var(--bl-outlined-hover-border-color);
+  background-color: var(--bl-outlined-hover-background-color);
+}
+.small-button.button-outlined:not(:disabled):active {
+  border-color: var(--bl-outlined-active-border-color);
+  background-color: var(--bl-outlined-active-background-color);
+}
+.small-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.small-button span {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  letter-spacing: 0.5px;
+}
+.small-button span:has(> svg) {
+  display: grid;
+}
+
+.icon-button {
+  display: inline-flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 100vmax;
+  color: var(--bl-foreground-color);
+  background-color: transparent;
+  transition: background-color 100ms ease-out;
+}
+html[data-theme=light] .icon-button {
+  --bl-hover-background-color: rgba(18, 18, 18, 0.1);
+  --bl-active-background-color: rgba(18, 18, 18, 0.2);
+}
+html[data-theme=dark] .icon-button {
+  --bl-hover-background-color: rgba(255, 255, 255, 0.1);
+  --bl-active-background-color: rgba(255, 255, 255, 0.2);
+}
+.icon-button:not(:disabled):hover {
+  background-color: var(--bl-hover-background-color);
+}
+.icon-button:not(:disabled):active {
+  background-color: var(--bl-active-background-color);
+}
+.icon-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.checkbox {
+  display: flex;
+}
+html[data-theme=light] .checkbox {
+  --bl-static-background-color: #3D4BC6;
+  --bl-dynamic-background-color: #5864CE;
+  --bl-hover-dynamic-background-color: #747ED6;
+  --bl-active-dynamic-background-color: #9098DE;
+  --bl-disabled-foreground-color: #9A9CAB;
+}
+html[data-theme=dark] .checkbox {
+  --bl-static-background-color: #D27708;
+  --bl-dynamic-background-color: #E69109;
+  --bl-hover-dynamic-background-color: #F6AE3B;
+  --bl-active-dynamic-background-color: #F9C87A;
+  --bl-disabled-foreground-color: #535564;
+}
+.checkbox input {
+  cursor: pointer;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+  position: relative;
+  display: grid;
+  place-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-static-background-color));
+  background-color: var(--bl-dynamic-background-color);
+  transition: all 100ms ease-out;
+}
+.checkbox input::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background-color: var(--bl-background-color);
+}
+.checkbox input:not(:disabled):hover {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-static-background-color));
+  background-color: var(--bl-hover-dynamic-background-color);
+}
+.checkbox input:not(:disabled):active {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-static-background-color));
+  background-color: var(--bl-active-dynamic-background-color);
+}
+.checkbox input:checked {
+  border: none;
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-static-background-color));
+  background-color: var(--bl-dynamic-background-color);
+}
+.checkbox input:checked:not(:disabled):hover {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-static-background-color));
+  background-color: var(--bl-hover-dynamic-background-color);
+}
+.checkbox input:checked:not(:disabled):active {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-static-background-color));
+  background-color: var(--bl-active-dynamic-background-color);
+}
+.checkbox input:checked::before {
+  width: 0;
+  height: 0;
+}
+.checkbox input:checked::after {
+  content: "";
+  height: 8.75px;
+  width: 5.75px;
+  border: solid #ffffff;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+  position: relative;
+  top: -1px;
+}
+.checkbox input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.checkbox label {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  padding-left: 0.5rem;
+  color: var(--bl-foreground-color);
+}
+.checkbox > input:disabled + label {
+  color: var(--bl-disabled-foreground-color);
+  cursor: not-allowed;
+}
+
+.input {
+  position: relative;
+}
+html[data-theme=light] .input {
+  --bl-foreground-color: #535564;
+  --bl-foreground-color-secondary: #B3B5C0;
+  --bl-active-stroke-color: #1C2362;
+  --bl-error-foreground-color: #D41F1F;
+  --bl-disabled-foreground-color: #B3B5C0;
+  --bl-disabled-foreground-color-secondary: #E3E3E7;
+}
+html[data-theme=dark] .input {
+  --bl-foreground-color: #B3B5C0;
+  --bl-foreground-color-secondary: #535564;
+  --bl-active-stroke-color: #3D4BC6;
+  --bl-error-foreground-color: #E65A5A;
+  --bl-disabled-foreground-color: #535564;
+  --bl-disabled-foreground-color-secondary: #27282F;
+}
+.input label {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  letter-spacing: 0.5px;
+  display: block;
+  height: fit-content;
+  color: var(--bl-foreground-color);
+  margin-left: 0.5rem;
+  margin-bottom: 2px;
+}
+.input .field {
+  height: 2rem;
+  border-radius: 0.5rem;
+  padding-inline: 0.5rem;
+  outline: 1px solid var(--bl-foreground-color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.input .field input {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  z-index: 1;
+  border: none;
+  background: none;
+  color: var(--bl-foreground-color);
+}
+@media (min-width: 600px) {
+  .input .field input {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+.input .field input > strong, .input .field input > b {
+  font-weight: 700;
+}
+.input .field input::placeholder {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+  color: var(--bl-foreground-color-secondary);
+  opacity: 1;
+}
+@media (min-width: 600px) {
+  .input .field input::placeholder {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+.input .field input:focus-visible {
+  outline: none;
+}
+.input .field .unit {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 0.625rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+  text-wrap: nowrap;
+  width: fit-content;
+  color: var(--bl-foreground-color-secondary);
+}
+@media (min-width: 600px) {
+  .input .field .unit {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}
+.input .field:hover {
+  outline-color: var(--bl-foreground-color);
+}
+.input .field:has(input:focus-within) {
+  border-color: transparent;
+  outline: 2px solid var(--bl-active-stroke-color);
+}
+.input legend {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+  margin-top: 2px;
+  margin-left: 14px;
+  color: var(--bl-foreground-color);
+}
+@media (min-width: 600px) {
+  .input legend {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+}
+.input.input--error, .input:has(input:invalid) {
+  --bl-foreground-color: var(--bl-error-foreground-color) !important;
+  --bl-foreground-color-secondary: var(--bl-error-foreground-color) !important;
+  --bl-active-stroke-color: var(--bl-error-foreground-color) !important;
+}
+.input:has(input:disabled) {
+  cursor: not-allowed;
+}
+.input:has(input:disabled) label, .input:has(input:disabled) .field, .input:has(input:disabled) input {
+  cursor: not-allowed;
+}
+.input:has(input:disabled) .field {
+  outline-color: var(--bl-disabled-foreground-color-secondary);
+}
+.input:has(input:disabled) label, .input:has(input:disabled) input, .input:has(input:disabled) legend {
+  color: var(--bl-disabled-foreground-color);
+}
+.input:has(input:disabled) input::placeholder, .input:has(input:disabled) .unit {
+  color: var(--bl-disabled-foreground-color-secondary);
+}
+
+.navlink {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: 0.5px;
+  padding: 0.25rem 0.5rem;
+  color: var(--bl-color);
+  transition: color 100ms ease-out;
+}
+html[data-theme=light] .navlink {
+  --bl-color: #9A9CAB;
+  --bl-hover-color: #5864CE;
+  --bl-current-color: #2C379A;
+}
+html[data-theme=dark] .navlink {
+  --bl-color: #818396;
+  --bl-hover-color: #D27708;
+  --bl-current-color: #E69109;
+}
+.navlink:hover {
+  color: var(--bl-hover-color);
+}
+.navlink.navlink--current {
+  color: var(--bl-current-color);
+}
+
+.radio-button {
+  --stroke-width: 1px;
+  display: flex;
+}
+html[data-theme=light] .radio-button {
+  --bl-static-background-color: #3D4BC6;
+  --bl-dynamic-background-color: #5864CE;
+  --bl-hover-dynamic-background-color: #747ED6;
+  --bl-active-dynamic-background-color: #9098DE;
+  --bl-disabled-foreground-color: #9A9CAB;
+}
+html[data-theme=dark] .radio-button {
+  --bl-static-background-color: #D27708;
+  --bl-dynamic-background-color: #E69109;
+  --bl-hover-dynamic-background-color: #F6AE3B;
+  --bl-active-dynamic-background-color: #F9C87A;
+  --bl-disabled-foreground-color: #535564;
+}
+.radio-button input {
+  cursor: pointer;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-static-background-color));
+  background-color: var(--bl-dynamic-background-color);
+  transition: all 100ms ease-out;
+}
+.radio-button input::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  background-color: var(--bl-background-color);
+}
+.radio-button input:not(:disabled):hover {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-static-background-color));
+  background-color: var(--bl-hover-dynamic-background-color);
+}
+.radio-button input:not(:disabled):active {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-static-background-color));
+  background-color: var(--bl-active-dynamic-background-color);
+}
+.radio-button input:checked::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 100vmax;
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-static-background-color));
+  background-color: var(--bl-dynamic-background-color);
+  transition: all 100ms ease-out;
+}
+.radio-button input:checked:not(:disabled):hover::after {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-static-background-color));
+  background-color: var(--bl-hover-dynamic-background-color);
+}
+.radio-button input:checked:not(:disabled):active::after {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-static-background-color));
+  background-color: var(--bl-active-dynamic-background-color);
+}
+.radio-button input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.radio-button label {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  padding-left: 0.5rem;
+  color: var(--bl-foreground-color);
+}
+.radio-button > input:disabled + label {
+  color: var(--bl-disabled-foreground-color);
+  cursor: not-allowed;
+}
+
+.select {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  outline: 1px solid;
+  outline-offset: -1px;
+  outline-color: var(--bl-foreground-color);
+  background-color: var(--bl-background-color);
+  width: fit-content;
+}
+html[data-theme=light] .select {
+  --bl-foreground-color: #3C3D48;
+  --bl-active-stroke-color: #3D4BC6;
+  --bl-disabled-foreground-color: #B3B5C0;
+}
+html[data-theme=dark] .select {
+  --bl-foreground-color: #E3E3E7;
+  --bl-active-stroke-color: #E69109;
+  --bl-disabled-foreground-color: #535564;
+}
+.select select {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 1rem;
+  padding-right: 2rem;
+  outline: none;
+  cursor: pointer;
+  color: var(--bl-foreground-color);
+}
+@media (min-width: 600px) {
+  .select select {
+    height: 2.5rem;
+  }
+}
+.select select:disabled {
+  cursor: not-allowed;
+  color: var(--bl-disabled-foreground-color);
+}
+.select::after {
+  content: "";
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: solid var(--bl-foreground-color);
+  border-width: 0 0 1.5px 1.5px;
+  transform: rotate(-45deg);
+  pointer-events: none;
+  position: absolute;
+  right: 1rem;
+  top: 10px;
+}
+@media (min-width: 600px) {
+  .select::after {
+    top: 13px;
+  }
+}
+.select:has(select:focus-within) {
+  outline: 2px solid var(--bl-active-stroke-color);
+}
+.select:has(select[disabled]) {
+  outline-color: var(--bl-disabled-foreground-color);
+  color: var(--bl-disabled-foreground-color);
+}
+.select:has(select[disabled])::after {
+  border-color: var(--bl-disabled-foreground-color);
+}
+.select option {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.5px;
+  color: #3C3D48;
+}
+.select option[disabled] {
+  color: #818396;
+}
+
+.snackbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 20rem;
+  width: max-content;
+  padding: 0.75rem 1rem;
+  border-radius: 1.25rem;
+  color: var(--bl-text-color);
+  --bl-text-color: #ffffff;
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--bl-bottom-background-color));
+  background-color: var(--bl-top-background-color);
+}
+.snackbar .icon-button {
+  color: inherit;
+}
+@media (min-width: 600px) {
+  .snackbar {
+    min-width: 26rem;
+    padding: 1rem 1.5rem;
+  }
+}
+
+.snackbar--info {
+  --bl-bottom-background-color: #2C379A;
+  --bl-top-background-color: #3D4BC6;
+}
+
+.snackbar--success {
+  --bl-bottom-background-color: #135735;
+  --bl-top-background-color: #1A7442;
+}
+
+.snackbar--warning {
+  --bl-bottom-background-color: #762E04;
+  --bl-top-background-color: #924306;
+}
+
+.snackbar--critical {
+  --bl-bottom-background-color: #9B1717;
+  --bl-top-background-color: #D41F1F;
+}
+
+.snackbar__start {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+@media (min-width: 600px) {
+  .snackbar__start {
+    gap: 1rem;
+  }
+}
+
+.snackbar__icon {
+  display: flex;
+}
+@media (max-width: 599.98px) {
+  .snackbar__icon {
+    width: 1rem;
+  }
+}
+
+.snackbar__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.snackbar__title {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+}
+@media (min-width: 600px) {
+  .snackbar__title {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+}
+
+.snackbar__message {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+}
+@media (min-width: 600px) {
+  .snackbar__message {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+.snackbar__message > strong, .snackbar__message > b {
+  font-weight: 700;
+}
+
+.switch {
+  cursor: pointer;
+  width: fit-content;
+  display: flex;
+}
+html[data-theme=light] .switch {
+  --not-checked-static-background-color: #CCCDD5;
+  --not-checked-default-dynamic-background-color: #B3B5C0;
+  --not-checked-hover-dynamic-background-color: #9A9CAB;
+  --not-checked-active-dynamic-background-color: #818396;
+  --checked-static-background-color: #2C379A;
+  --checked-default-dynamic-background-color: #3D4BC6;
+  --checked-hover-dynamic-background-color: #5864CE;
+  --checked-active-dynamic-background-color: #747ED6;
+  --bl-disabled-foreground-color: #9A9CAB;
+}
+html[data-theme=dark] .switch {
+  --not-checked-static-background-color: #535564;
+  --not-checked-default-dynamic-background-color: #6A6C7F;
+  --not-checked-hover-dynamic-background-color: #818396;
+  --not-checked-active-dynamic-background-color: #9A9CAB;
+  --checked-static-background-color: #D27708;
+  --checked-default-dynamic-background-color: #E69109;
+  --checked-hover-dynamic-background-color: #F6AE3B;
+  --checked-active-dynamic-background-color: #F9C87A;
+  --bl-disabled-foreground-color: #535564;
+}
+.switch input {
+  appearance: none;
+  cursor: pointer;
+  width: 2rem;
+  height: 1rem;
+  border-radius: 100vmax;
+  position: relative;
+  transition: background-color 100ms ease-out;
+}
+html[data-theme=light] .switch input {
+  background: linear-gradient(var(--not-checked-static-background-color), rgba(0, 0, 0, 0));
+  background-color: var(--not-checked-default-dynamic-background-color);
+}
+html[data-theme=light] .switch input:not(:disabled):hover {
+  background: linear-gradient(var(--not-checked-static-background-color), rgba(0, 0, 0, 0));
+  background-color: var(--not-checked-hover-dynamic-background-color);
+}
+html[data-theme=light] .switch input:not(:disabled):active {
+  background: linear-gradient(var(--not-checked-static-background-color), rgba(0, 0, 0, 0));
+  background-color: var(--not-checked-active-dynamic-background-color);
+}
+html[data-theme=dark] .switch input {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--not-checked-static-background-color));
+  background-color: var(--not-checked-default-dynamic-background-color);
+}
+html[data-theme=dark] .switch input:not(:disabled):hover {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--not-checked-static-background-color));
+  background-color: var(--not-checked-hover-dynamic-background-color);
+}
+html[data-theme=dark] .switch input:not(:disabled):active {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--not-checked-static-background-color));
+  background-color: var(--not-checked-active-dynamic-background-color);
+}
+.switch input::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 100vmax;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  margin-left: 0;
+  background-color: #ffffff;
+  transition: margin-left 200ms ease-in-out;
+}
+html[data-theme] .switch input:checked {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--checked-static-background-color));
+  background-color: var(--checked-default-dynamic-background-color);
+}
+html[data-theme] .switch input:checked::after {
+  margin-left: 16px;
+}
+html[data-theme] .switch input:checked:not(:disabled):hover {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--checked-static-background-color));
+  background-color: var(--checked-hover-dynamic-background-color);
+}
+html[data-theme] .switch input:checked:not(:disabled):active {
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--checked-static-background-color));
+  background-color: var(--checked-active-dynamic-background-color);
+}
+.switch input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.switch label {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  padding-left: 0.5rem;
+  color: var(--bl-foreground-color);
+}
+.switch > input:disabled + label {
+  color: var(--bl-disabled-foreground-color);
+  cursor: not-allowed;
+}
+
+:root:has(.onboarding-card) {
+  --bl-header-height: 0px;
+  --bl-footer-height: 0px;
+}
+
+@media (min-width: 600px) {
+  .container:has(.onboarding-card) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 8rem;
+  }
+  html[data-theme=light] .container:has(.onboarding-card) {
+    background: linear-gradient(135deg, #EFF0FA 35%, #ABB1E6);
+  }
+  html[data-theme=dark] .container:has(.onboarding-card) {
+    background: linear-gradient(135deg, #131843, #2C379A);
+  }
+}
+
+.website-introduction {
+  max-width: 45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (max-width: 599.98px) {
+  .website-introduction {
+    display: none;
+  }
+}
+
+.website-introduction__title {
+  font-family: "Trirong", system-ui, sans-serif;
+  font-weight: 900;
+  font-size: 6rem;
+  line-height: 6rem;
+  letter-spacing: 0px;
+}
+html[data-theme=light] .website-introduction__title {
+  color: #131843;
+}
+html[data-theme=dark] .website-introduction__title {
+  color: #EFF0FA;
+}
+
+.website-introduction__subtitle {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 3rem;
+  line-height: 4.5rem;
+  letter-spacing: 0px;
+}
+html[data-theme=light] .website-introduction__subtitle {
+  color: #1C2362;
+}
+html[data-theme=dark] .website-introduction__subtitle {
+  color: #DFE1F5;
+}
+
+.website-introduction__buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.go-to-signup {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-1 * var(--bl-page-margin));
+  display: grid;
+  place-items: center;
+  gap: 1.5rem;
+  border-radius: 0 0 2rem 2rem;
+  padding: 2rem;
+  z-index: 1;
+}
+html[data-theme=light] .go-to-signup {
+  box-shadow: 2px 4px 0.5rem 1px rgba(18, 18, 18, 0.2);
+}
+html[data-theme=light] .go-to-signup {
+  background-color: #EFF0FA;
+}
+html[data-theme=dark] .go-to-signup {
+  background-color: #27282F;
+}
+@media (min-width: 600px) {
+  .go-to-signup {
+    display: none;
+  }
+}
+.go-to-signup .go-to-signup__title {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+}
+@media (min-width: 600px) {
+  .go-to-signup .go-to-signup__title {
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
+}
+.go-to-signup .go-to-signup__title > strong, .go-to-signup .go-to-signup__title > b {
+  font-weight: 800;
+}
+.go-to-signup .buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.onboarding-card {
+  position: relative;
+  background-color: var(--bl-background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  padding-top: 4rem;
+}
+@media (min-width: 600px) {
+  .onboarding-card {
+    border-radius: 2rem;
+  }
+}
+@media (max-width: 599.98px) {
+  .onboarding-card {
+    width: 100vw;
+    min-height: 100dvh;
+    margin-left: calc(-1 * var(--bl-page-margin));
+  }
+}
+@media (min-width: 600px) {
+  .onboarding-card:has(> .back-button) {
+    padding-top: 6rem;
+  }
+}
+.onboarding-card .back-button {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+@media (min-width: 600px) {
+  .onboarding-card .back-button {
+    top: 2rem;
+    left: 2rem;
+  }
+}
+.onboarding-card .buttons {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.onboarding-card__title {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .onboarding-card__title {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+}
+
+.onboarding-card__small-title {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .onboarding-card__small-title {
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
+}
+.onboarding-card__small-title > strong, .onboarding-card__small-title > b {
+  font-weight: 800;
+}
+
+.onboarding-card__paragraph {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+}
+@media (min-width: 600px) {
+  .onboarding-card__paragraph {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+.onboarding-card__paragraph > strong, .onboarding-card__paragraph > b {
+  font-weight: 700;
+}
+
+.onboarding-card__form-errors {
+  color: var(--bl-foreground-color);
+  margin-top: 2rem;
+}
+html[data-theme=light] .onboarding-card__form-errors {
+  --bl-foreground-color: #D41F1F;
+}
+html[data-theme=dark] .onboarding-card__form-errors {
+  --bl-foreground-color: #EB7979;
+}
+@media (min-width: 600px) {
+  .onboarding-card__form-errors {
+    margin-top: 3rem;
+  }
+}
+.onboarding-card__form-errors p {
+  font-family: "Raleway", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .onboarding-card__form-errors p {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+}
+.onboarding-card__form-errors p > strong, .onboarding-card__form-errors p > b {
+  font-weight: 700;
+}
+@media (max-width: 599.98px) {
+  .onboarding-card__form-errors p {
+    margin-bottom: 0.5rem;
+  }
+}
+.onboarding-card__form-errors p:last-child {
+  margin-bottom: 1.5rem;
+}
+
+.onboarding-card__form {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+}
+.onboarding-card__form fieldset {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.onboarding-card__form .button, .go-to-signup .button {
+  width: 100%;
+}
+
+.onboarding-card__content {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.5rem;
+}
+.onboarding-card__content .onboarding-card__paragraph, .onboarding-card__content .onboarding-card__small-title {
+  color: var(--bl-foreground-color);
+}
+html[data-theme=light] .onboarding-card__content .onboarding-card__paragraph, html[data-theme=light] .onboarding-card__content .onboarding-card__small-title {
+  --bl-foreground-color: #3C3D48;
+}
+html[data-theme=dark] .onboarding-card__content .onboarding-card__paragraph, html[data-theme=dark] .onboarding-card__content .onboarding-card__small-title {
+  --bl-foreground-color: #CCCDD5;
+}
+@media (min-width: 600px) {
+  .onboarding-card__content {
+    margin-top: 3rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .reset-password .onboarding-card {
+    width: 28.5rem;
+  }
+}
+
+.password-reset .onboarding-card {
+  gap: 1.5rem;
+}
+@media (min-width: 600px) {
+  .password-reset .onboarding-card {
+    width: 28.5rem;
+  }
+}
+.password-reset .onboarding-card .button {
+  width: 100%;
+}
+.password-reset .onboarding-card__content {
+  margin-top: 0;
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=app.css.map */

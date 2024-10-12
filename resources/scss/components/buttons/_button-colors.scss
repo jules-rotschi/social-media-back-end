@@ -1,0 +1,112 @@
+@use '../../abstract' as *;
+
+@mixin button-colors($color: 'primary') {
+
+  --bl-outlined-hover-background-color: transparent;
+  --bl-outlined-active-background-color: #{$neutral-opacity-20};
+
+  html[data-theme="light"] & {
+    --bl-outlined-border-color: #{$neutral-300};
+    --bl-outlined-hover-border-color: #{$primary-900};
+    --bl-outlined-active-border-color: #{$primary-900};
+    --bl-outlined-foreground-color: #{primary-900};
+    --bl-ghost-color: #{$primary-900};
+    --bl-ghost-hover-background-color: #{$dark-opacity-10};
+    --bl-ghost-active-background-color: #{$dark-opacity-20};
+  
+    @if $color == 'neutral' {
+      --bl-filled-foreground-color: #{$light};
+      --bl-filled-background-color: #{$primary-900};
+      --bl-filled-hover-background-color: #{$primary-800};
+      --bl-filled-active-background-color: #{$primary-700};
+    }
+  
+    @if $color == 'primary' {
+      --bl-filled-foreground-color: #{$light};
+      --bl-filled-background-color: #{$primary-900};
+      --bl-filled-hover-background-color: #{$primary-800};
+      --bl-filled-active-background-color: #{$primary-700};
+    }
+  
+    @if $color == 'info' {
+      --bl-filled-foreground-color: #{$light};
+      --bl-filled-background-color: #{$primary-900};
+      --bl-filled-hover-background-color: #{$primary-800};
+      --bl-filled-active-background-color: #{$primary-700};
+    }
+  
+    @if $color == 'success' {
+      --bl-filled-foreground-color: #{$light};
+      --bl-filled-background-color: #{$primary-900};
+      --bl-filled-hover-background-color: #{$primary-800};
+      --bl-filled-active-background-color: #{$primary-700};
+    }
+  
+    @if $color == 'warning' {
+      --bl-filled-foreground-color: #{$light};
+      --bl-filled-background-color: #{$primary-900};
+      --bl-filled-hover-background-color: #{$primary-800};
+      --bl-filled-active-background-color: #{$primary-700};
+    }
+  
+    @if $color == 'critical' {
+      --bl-filled-foreground-color: #{$light};
+      --bl-filled-background-color: #{$primary-900};
+      --bl-filled-hover-background-color: #{$primary-800};
+      --bl-filled-active-background-color: #{$primary-700};
+    }
+  }
+
+  html[data-theme="dark"] & {
+
+    --bl-outlined-border-color: #{$neutral-700};
+    --bl-outlined-hover-border-color: #{$primary-700};
+    --bl-outlined-active-border-color: #{$primary-700};
+    --bl-outlined-foreground-color: #{neutral-050};
+    --bl-ghost-color: #{$primary-050};
+    --bl-ghost-hover-background-color: #{$light-opacity-10};
+    --bl-ghost-active-background-color: #{$light-opacity-20};
+  
+    @if $color == 'neutral' {
+      --bl-filled-foreground-color: #{$light};
+      --bl-filled-background-color: #{$primary-700};
+      --bl-filled-hover-background-color: #{$primary-800};
+      --bl-filled-active-background-color: #{$primary-900};
+    }
+  
+    @if $color == 'primary' {
+      --bl-filled-foreground-color: #{$light};
+      --bl-filled-background-color: #{$primary-700};
+      --bl-filled-hover-background-color: #{$primary-800};
+      --bl-filled-active-background-color: #{$primary-900};
+    }
+  
+    @if $color == 'info' {
+      --bl-filled-foreground-color: #{$light};
+      --bl-filled-background-color: #{$primary-700};
+      --bl-filled-hover-background-color: #{$primary-800};
+      --bl-filled-active-background-color: #{$primary-900};
+    }
+  
+    @if $color == 'success' {
+      --bl-filled-foreground-color: #{$light};
+      --bl-filled-background-color: #{$primary-700};
+      --bl-filled-hover-background-color: #{$primary-800};
+      --bl-filled-active-background-color: #{$primary-900};
+    }
+  
+    @if $color == 'warning' {
+      --bl-filled-foreground-color: #{$light};
+      --bl-filled-background-color: #{$primary-700};
+      --bl-filled-hover-background-color: #{$primary-800};
+      --bl-filled-active-background-color: #{$primary-900};
+    }
+  
+    @if $color == 'critical' {
+      --bl-filled-foreground-color: #{$light};
+      --bl-filled-background-color: #{$primary-700};
+      --bl-filled-hover-background-color: #{$primary-800};
+      --bl-filled-active-background-color: #{$primary-900};
+    }
+  }
+}

@@ -1,0 +1,69 @@
+$small-screen: 600px;
+$medium-screen: 960px;
+$large-screen: 1440px;
+
+@mixin above-breakpoint($breakpoint-identifier) {
+  $breakpoint: 0px;
+
+  @if $breakpoint-identifier == 'small' {
+    $breakpoint: $small-screen;
+  }
+
+  @if $breakpoint-identifier == 'medium' {
+    $breakpoint: $medium-screen;
+  }
+
+  @if $breakpoint-identifier == 'large' {
+    $breakpoint: $large-screen;
+  }
+
+  @media (min-width: $breakpoint) {
+    @content();
+  }
+}
+
+@mixin under-breakpoint($breakpoint-identifier) {
+  $breakpoint: 0px;
+
+  @if $breakpoint-identifier == 'small' {
+    $breakpoint: $small-screen;
+  }
+
+  @if $breakpoint-identifier == 'medium' {
+    $breakpoint: $medium-screen;
+  }
+
+  @if $breakpoint-identifier == 'large' {
+    $breakpoint: $large-screen;
+  }
+
+  @media (max-width: calc($breakpoint - 0.02px)) {
+    @content();
+  }
+}
+
+@mixin remove-on($sizes...) {
+  @each $size in $sizes {
+    $breakpoint-in: 0px;
+    $breakpoint-out: 0px;
+    @if $size == 'extra-small' {
+      $breakpoint-in: 0px;
+      $breakpoint-out: $small-screen;
+    }
+    @if $size == 'small' {
+      $breakpoint-in: $small-screen;
+      $breakpoint-out: $medium-screen;
+    }
+    @if $size == 'medium' {
+      $breakpoint-in: $medium-screen;
+      $breakpoint-out: $large-screen;
+    }
+    @if $size == 'large' {
+      $breakpoint-in: $large-screen;
+      $breakpoint-out: 1000vw;
+    }
+    @media (min-width: $breakpoint-in) and (max-width: calc($breakpoint-out - 0.02px)) {
+      display: none;
+    }
+  }
+}

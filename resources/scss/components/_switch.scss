@@ -1,0 +1,149 @@
+@use '../abstract' as *;
+@use '../tokens' as *;
+
+.switch {
+
+  html[data-theme="light"] & {
+    --not-checked-static-background-color: #{$bl-sys-color-neutral-200};
+    --not-checked-default-dynamic-background-color: #{$bl-sys-color-neutral-300};
+    --not-checked-hover-dynamic-background-color: #{$bl-sys-color-neutral-400};
+    --not-checked-active-dynamic-background-color: #{$bl-sys-color-neutral-500};
+    --checked-static-background-color: #{$bl-sys-color-primary-800};
+    --checked-default-dynamic-background-color: #{$bl-sys-color-primary-700};
+    --checked-hover-dynamic-background-color: #{$bl-sys-color-primary-600};
+    --checked-active-dynamic-background-color: #{$bl-sys-color-primary-500};
+    --bl-disabled-foreground-color: #{$bl-sys-color-neutral-400};
+  }
+
+  html[data-theme="dark"] & {
+    --not-checked-static-background-color: #{$bl-sys-color-neutral-700};
+    --not-checked-default-dynamic-background-color: #{$bl-sys-color-neutral-600};
+    --not-checked-hover-dynamic-background-color: #{$bl-sys-color-neutral-500};
+    --not-checked-active-dynamic-background-color: #{$bl-sys-color-neutral-400};
+    --checked-static-background-color: #{$bl-sys-color-secondary-500};
+    --checked-default-dynamic-background-color: #{$bl-sys-color-secondary-400};
+    --checked-hover-dynamic-background-color: #{$bl-sys-color-secondary-300};
+    --checked-active-dynamic-background-color: #{$bl-sys-color-secondary-200};
+    --bl-disabled-foreground-color: #{$bl-sys-color-neutral-700};
+  }
+
+  cursor: pointer;
+  width: fit-content;
+  display: flex;
+
+  input {
+    appearance: none;
+    cursor: pointer;
+    width: 2rem;
+    height: 1rem;
+    border-radius: 100vmax;
+    position: relative;
+    @include appearence-transition(background-color);
+
+    html[data-theme="light"] & {
+      @include dynamic-background-gradient(
+        var(--not-checked-static-background-color),
+        var(--not-checked-default-dynamic-background-color),
+        "bottom"
+      );
+
+      &:not(:disabled):hover {
+        @include dynamic-background-gradient(
+          var(--not-checked-static-background-color),
+          var(--not-checked-hover-dynamic-background-color),
+          "bottom"
+        );
+      }
+  
+      &:not(:disabled):active {
+        @include dynamic-background-gradient(
+          var(--not-checked-static-background-color),
+          var(--not-checked-active-dynamic-background-color),
+          "bottom"
+        );
+      }
+    }
+
+    html[data-theme="dark"] & {
+      @include dynamic-background-gradient(
+        var(--not-checked-static-background-color),
+        var(--not-checked-default-dynamic-background-color),
+        "top"
+      );
+  
+      &:not(:disabled):hover {
+        @include dynamic-background-gradient(
+          var(--not-checked-static-background-color),
+          var(--not-checked-hover-dynamic-background-color),
+          "top"
+        );
+      }
+  
+      &:not(:disabled):active {
+        @include dynamic-background-gradient(
+          var(--not-checked-static-background-color),
+          var(--not-checked-active-dynamic-background-color),
+          "top"
+        );
+      }
+    }
+  
+    &::after {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 100vmax;
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      margin-left: 0;
+      background-color: $bl-sys-color-light;
+      transition: margin-left 200ms ease-in-out;
+    }
+
+    html[data-theme] &:checked {
+      &::after {
+        margin-left: 16px;
+      }
+
+      @include dynamic-background-gradient(
+        var(--checked-static-background-color),
+        var(--checked-default-dynamic-background-color),
+        "top"
+      );
+  
+      &:not(:disabled):hover {
+        @include dynamic-background-gradient(
+          var(--checked-static-background-color),
+          var(--checked-hover-dynamic-background-color),
+          "top"
+        );
+      }
+  
+      &:not(:disabled):active {
+        @include dynamic-background-gradient(
+          var(--checked-static-background-color),
+          var(--checked-active-dynamic-background-color),
+          "top"
+        );
+      }
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  label {
+    @include label-2();
+    cursor: pointer;
+    padding-left: 0.5rem;
+    color: var(--bl-foreground-color);
+  }
+
+  & > input:disabled + label {
+    color: var(--bl-disabled-foreground-color);
+    cursor: not-allowed;
+  }
+}

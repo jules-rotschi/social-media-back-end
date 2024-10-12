@@ -1,0 +1,40 @@
+@let(styleclass = ` button-${style || "filled"}`)
+@let(colorclass = color ? ` button-${color}` : "")
+@let(iconclass = icon ? " button-with-icon" : "")
+@let(customclass = class ? ` ${class}` : "")
+
+@if(link)
+  <a
+    href="{{link}}"
+    @if(externalLink)
+      target="_blank"
+    @end
+    class="{{'small-button' + styleclass + colorclass + iconclass + customclass}}"
+    id="{{id}}"
+  >
+    @if(icon !== undefined)
+      <span>
+        @!component(icon, {size: 16})
+      </span>
+    @end
+    <span>{{label || "Label"}}</span>
+  </a>
+
+@else
+  <button
+    type="{{type || 'button'}}"
+    class="{{'small-button' + styleclass + colorclass + iconclass + customclass}}"
+    id="{{id}}"
+    @if(disabled)
+      disabled
+    @end
+  >
+    @if(icon !== undefined)
+      <span>
+        @!component(icon, {size: 16})
+      </span>
+    @end
+    <span>{{label || "Label"}}</span>
+  </button>
+
+@end

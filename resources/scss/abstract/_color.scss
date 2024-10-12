@@ -1,0 +1,156 @@
+@use '../tokens/' as *;
+
+$light: $bl-sys-color-light;
+$dark: $bl-sys-color-dark;
+
+$light-opacity-10: $bl-sys-color-light-opacity-10;
+$light-opacity-20: $bl-sys-color-light-opacity-20;
+$light-opacity-30: $bl-sys-color-light-opacity-30;
+$light-opacity-40: $bl-sys-color-light-opacity-40;
+$light-opacity-50: $bl-sys-color-light-opacity-50;
+$light-opacity-60: $bl-sys-color-light-opacity-60;
+$light-opacity-70: $bl-sys-color-light-opacity-70;
+$light-opacity-80: $bl-sys-color-light-opacity-80;
+$light-opacity-90: $bl-sys-color-light-opacity-90;
+
+$dark-opacity-10: $bl-sys-color-dark-opacity-10;
+$dark-opacity-20: $bl-sys-color-dark-opacity-20;
+$dark-opacity-30: $bl-sys-color-dark-opacity-30;
+$dark-opacity-40: $bl-sys-color-dark-opacity-40;
+$dark-opacity-50: $bl-sys-color-dark-opacity-50;
+$dark-opacity-60: $bl-sys-color-dark-opacity-60;
+$dark-opacity-70: $bl-sys-color-dark-opacity-70;
+$dark-opacity-80: $bl-sys-color-dark-opacity-80;
+$dark-opacity-90: $bl-sys-color-dark-opacity-90;
+
+$neutral-050: $bl-sys-color-neutral-050;
+$neutral-100: $bl-sys-color-neutral-100;
+$neutral-200: $bl-sys-color-neutral-200;
+$neutral-300: $bl-sys-color-neutral-300;
+$neutral-400: $bl-sys-color-neutral-400;
+$neutral-500: $bl-sys-color-neutral-500;
+$neutral-600: $bl-sys-color-neutral-600;
+$neutral-700: $bl-sys-color-neutral-700;
+$neutral-800: $bl-sys-color-neutral-800;
+$neutral-900: $bl-sys-color-neutral-900;
+$neutral-950: $bl-sys-color-neutral-950;
+
+$neutral-opacity-20: $bl-sys-color-neutral-opacity-20;
+$neutral-opacity-40: $bl-sys-color-neutral-opacity-40;
+$neutral-opacity-60: $bl-sys-color-neutral-opacity-60;
+$neutral-opacity-80: $bl-sys-color-neutral-opacity-80;
+
+$primary-050: $bl-sys-color-primary-050;
+$primary-100: $bl-sys-color-primary-100;
+$primary-200: $bl-sys-color-primary-200;
+$primary-300: $bl-sys-color-primary-300;
+$primary-400: $bl-sys-color-primary-400;
+$primary-500: $bl-sys-color-primary-500;
+$primary-600: $bl-sys-color-primary-600;
+$primary-700: $bl-sys-color-primary-700;
+$primary-800: $bl-sys-color-primary-800;
+$primary-900: $bl-sys-color-primary-900;
+$primary-950: $bl-sys-color-primary-950;
+
+$primary-opacity-20: $bl-sys-color-primary-opacity-20;
+$primary-opacity-40: $bl-sys-color-primary-opacity-40;
+$primary-opacity-60: $bl-sys-color-primary-opacity-60;
+$primary-opacity-80: $bl-sys-color-primary-opacity-80;
+
+$secondary-050: $bl-sys-color-secondary-050;
+$secondary-100: $bl-sys-color-secondary-100;
+$secondary-200: $bl-sys-color-secondary-200;
+$secondary-300: $bl-sys-color-secondary-300;
+$secondary-400: $bl-sys-color-secondary-400;
+$secondary-500: $bl-sys-color-secondary-500;
+$secondary-600: $bl-sys-color-secondary-600;
+$secondary-700: $bl-sys-color-secondary-700;
+$secondary-800: $bl-sys-color-secondary-800;
+$secondary-900: $bl-sys-color-secondary-900;
+$secondary-950: $bl-sys-color-secondary-950;
+
+$secondary-opacity-20: $bl-sys-color-secondary-opacity-20;
+$secondary-opacity-40: $bl-sys-color-secondary-opacity-40;
+$secondary-opacity-60: $bl-sys-color-secondary-opacity-60;
+$secondary-opacity-80: $bl-sys-color-secondary-opacity-80;
+
+$info-050: $bl-sys-color-info-050;
+$info-100: $bl-sys-color-info-100;
+$info-200: $bl-sys-color-info-200;
+$info-300: $bl-sys-color-info-300;
+$info-400: $bl-sys-color-info-400;
+$info-500: $bl-sys-color-info-500;
+$info-600: $bl-sys-color-info-600;
+$info-700: $bl-sys-color-info-700;
+$info-800: $bl-sys-color-info-800;
+$info-900: $bl-sys-color-info-900;
+$info-950: $bl-sys-color-info-950;
+
+$info-opacity-20: $bl-sys-color-info-opacity-20;
+$info-opacity-40: $bl-sys-color-info-opacity-40;
+$info-opacity-60: $bl-sys-color-info-opacity-60;
+$info-opacity-80: $bl-sys-color-info-opacity-80;
+
+$success-050: $bl-sys-color-success-050;
+$success-100: $bl-sys-color-success-100;
+$success-200: $bl-sys-color-success-200;
+$success-300: $bl-sys-color-success-300;
+$success-400: $bl-sys-color-success-400;
+$success-500: $bl-sys-color-success-500;
+$success-600: $bl-sys-color-success-600;
+$success-700: $bl-sys-color-success-700;
+$success-800: $bl-sys-color-success-800;
+$success-900: $bl-sys-color-success-900;
+$success-950: $bl-sys-color-success-950;
+
+$success-opacity-20: $bl-sys-color-success-opacity-20;
+$success-opacity-40: $bl-sys-color-success-opacity-40;
+$success-opacity-60: $bl-sys-color-success-opacity-60;
+$success-opacity-80: $bl-sys-color-success-opacity-80;
+
+$warning-050: $bl-sys-color-warning-050;
+$warning-100: $bl-sys-color-warning-100;
+$warning-200: $bl-sys-color-warning-200;
+$warning-300: $bl-sys-color-warning-300;
+$warning-400: $bl-sys-color-warning-400;
+$warning-500: $bl-sys-color-warning-500;
+$warning-600: $bl-sys-color-warning-600;
+$warning-700: $bl-sys-color-warning-700;
+$warning-800: $bl-sys-color-warning-800;
+$warning-900: $bl-sys-color-warning-900;
+$warning-950: $bl-sys-color-warning-950;
+
+$warning-opacity-20: $bl-sys-color-warning-opacity-20;
+$warning-opacity-40: $bl-sys-color-warning-opacity-40;
+$warning-opacity-60: $bl-sys-color-warning-opacity-60;
+$warning-opacity-80: $bl-sys-color-warning-opacity-80;
+
+$critical-050: $bl-sys-color-critical-050;
+$critical-100: $bl-sys-color-critical-100;
+$critical-200: $bl-sys-color-critical-200;
+$critical-300: $bl-sys-color-critical-300;
+$critical-400: $bl-sys-color-critical-400;
+$critical-500: $bl-sys-color-critical-500;
+$critical-600: $bl-sys-color-critical-600;
+$critical-700: $bl-sys-color-critical-700;
+$critical-800: $bl-sys-color-critical-800;
+$critical-900: $bl-sys-color-critical-900;
+$critical-950: $bl-sys-color-critical-950;
+
+$critical-opacity-20: $bl-sys-color-critical-opacity-20;
+$critical-opacity-40: $bl-sys-color-critical-opacity-40;
+$critical-opacity-60: $bl-sys-color-critical-opacity-60;
+$critical-opacity-80: $bl-sys-color-critical-opacity-80;
+
+@mixin dynamic-background-gradient($static-color, $dynamic-color, $dynamic-color-position) {
+  
+  @if $dynamic-color-position == "bottom" {
+    background: linear-gradient($static-color, rgba(0,0,0,0));
+  }
+
+  @if $dynamic-color-position == "top" {
+    background: linear-gradient(rgba(0,0,0,0), $static-color);
+  }
+
+  background-color: $dynamic-color;
+}

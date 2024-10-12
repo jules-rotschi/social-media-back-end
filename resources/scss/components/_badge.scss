@@ -1,0 +1,27 @@
+@use '../tokens' as *;
+@use '../abstract' as *;
+
+.badge {
+
+  html[data-theme="light"] & {
+    --label-color: #{$bl-sys-color-neutral-800};
+  }
+
+  html[data-theme="dark"] & {
+    --label-color: #{$bl-sys-color-neutral-200};
+  }
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  vertical-align: middle;
+  color: var(--label-color);
+  background-color: $bl-sys-color-neutral-opacity-20;
+
+  .label {
+    @include label-2();
+  }
+}

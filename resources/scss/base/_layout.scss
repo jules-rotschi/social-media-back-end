@@ -1,0 +1,34 @@
+@use '../abstract' as *;
+
+:root {
+  --bl-header-height: 7rem;
+  --bl-footer-height: 7rem;
+  --bl-page-margin: 3%;
+  --bl-column-width: calc(100% / 12);
+  --bl-gutter-width: 0.5rem;
+
+  @include above-breakpoint('small') {
+    --bl-gutter-width: 1rem;
+  }
+
+  @include above-breakpoint('large') {
+    --bl-gutter-width: 1.5rem;
+  }
+}
+
+.page-header {
+  height: var(--bl-header-height);
+}
+
+.page-footer {
+  height: var(--bl-footer-height);
+}
+
+.page-content {
+  min-height: calc(100dvh - var(--bl-header-height) - var(--bl-footer-height));
+}
+
+.container {
+  width: 100%;
+  padding-inline: var(--bl-page-margin);
+}

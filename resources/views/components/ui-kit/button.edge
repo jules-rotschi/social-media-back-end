@@ -1,0 +1,54 @@
+@let(sizeClass = small ? 'small-button' : 'button')
+@let(styleClass = ` button-${style || 'filled'}`)
+@let(colorClass = color ? ` button-${color}` : '')
+
+@if(link)
+  <a
+    href="{{link}}"
+    @if(externalLink)
+      target="_blank"
+    @end
+    class="{{sizeClass + styleClass + colorClass + (customClass ? ` ${customClass}` : '')}}"
+    @if(id)
+      id="{{id}}"
+    @end
+    @if(tabIndex)
+      tabindex="{{tabIndex}}"
+    @end
+    >
+    @if(icon)
+      <span class="icon">
+        @!component(icon, {size: 16})
+      </span>
+    @end
+    <span class="label">{{label || "Label"}}</span>
+  </a>
+
+@else
+  <button
+    type="{{type || 'button'}}"
+    class="{{sizeClass + styleClass + colorClass + (customClass ? ` ${customClass}` : '')}}"
+    @if(id)
+      id="{{id}}"
+    @end
+    @if(tabIndex)
+      tabindex="{{tabIndex}}"
+    @end
+    @if(disabled)
+      disabled
+    @end
+    @if(popoverTarget)
+      popovertarget="{{popoverTarget}}"
+    @end
+    @if(popoverTargetAction)
+      popovertargetaction="{{popoverTargetAction}}"
+    @end
+  >
+    @if(icon)
+      <span class="icon">
+        @!component(icon, {size: 16})
+      </span>
+    @end
+    <span class="label">{{label || 'Label'}}</span>
+  </button>
+@end

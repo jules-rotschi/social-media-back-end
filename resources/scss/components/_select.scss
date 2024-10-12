@@ -1,0 +1,87 @@
+@use '../tokens' as *;
+@use '../abstract' as *;
+
+.select {
+
+  html[data-theme="light"] & {
+    --bl-foreground-color: #{$bl-sys-color-neutral-800};
+    --bl-active-stroke-color: #{$bl-sys-color-primary-700};
+    --bl-disabled-foreground-color: #{$bl-sys-color-neutral-300};
+  }
+  
+  html[data-theme="dark"] & {
+    --bl-foreground-color: #{$bl-sys-color-neutral-100};
+    --bl-active-stroke-color: #{$bl-sys-color-secondary-400};
+    --bl-disabled-foreground-color: #{$bl-sys-color-neutral-700};
+  }
+
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  outline: 1px solid;
+  outline-offset: -1px;
+  outline-color: var(--bl-foreground-color);
+  background-color: var(--bl-background-color);
+  width: fit-content;
+  
+  select {
+    @include label-2();
+    padding: 0.5rem 1rem;
+    padding-right: 2rem;
+    outline: none;
+    cursor: pointer;
+    color: var(--bl-foreground-color);
+
+    @include above-breakpoint('small') {
+      height: 2.5rem;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      color: var(--bl-disabled-foreground-color);
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border: solid var(--bl-foreground-color);
+    border-width: 0 0 1.5px 1.5px;
+    transform: rotate(-45deg);
+    pointer-events: none;
+    position: absolute;
+    right: 1rem;
+    top: 10px;
+
+    @include above-breakpoint('small') {
+      top: 13px;
+    }
+  }
+  
+  &:has(select:focus-within) {
+    outline:
+      2px
+      solid
+      var(--bl-active-stroke-color);
+  }
+
+  &:has(select[disabled]) {
+    outline-color: var(--bl-disabled-foreground-color);
+    color: var(--bl-disabled-foreground-color);
+
+    &::after {
+      border-color: var(--bl-disabled-foreground-color);
+    }
+  }
+
+  option {
+    @include label-3();
+    color: $neutral-800;
+
+    &[disabled] {
+      color: $neutral-500;
+    }
+  }
+}

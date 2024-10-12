@@ -1,0 +1,55 @@
+* {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  list-style: none;
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border-radius: 0;
+  text-transform: none;
+}
+
+button:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+input[type=number] {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+select {
+  border: none;
+  background: none;
+  word-wrap: normal;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &:disabled {
+    opacity: 1;
+  }
+}
+
+address {
+  font-style: normal;
+}
+
+hr {
+  color: inherit;
+}

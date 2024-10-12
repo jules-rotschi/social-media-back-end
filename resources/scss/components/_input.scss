@@ -1,0 +1,117 @@
+@use '../abstract' as *;
+
+.input {
+
+  html[data-theme="light"] & {
+    --bl-foreground-color: #{$neutral-700};
+    --bl-foreground-color-secondary: #{$neutral-300};
+    --bl-active-stroke-color: #{$primary-900};
+    --bl-error-foreground-color: #{$critical-700};
+    --bl-disabled-foreground-color: #{$neutral-300};
+    --bl-disabled-foreground-color-secondary: #{$neutral-100};
+  }
+  
+  html[data-theme="dark"] & {
+    --bl-foreground-color: #{$neutral-300};
+    --bl-foreground-color-secondary: #{$neutral-700};
+    --bl-active-stroke-color: #{$primary-700};
+    --bl-error-foreground-color: #{$critical-500};
+    --bl-disabled-foreground-color: #{$neutral-700};
+    --bl-disabled-foreground-color-secondary: #{$neutral-900};
+  }
+
+  position: relative;
+
+  label {
+    @include label-2();
+    display: block;
+    height: fit-content;
+    color: var(--bl-foreground-color);
+    margin-left: 0.5rem;
+    margin-bottom: 2px;
+  }
+
+  .field {
+    height: 2rem;
+    border-radius: 0.5rem;
+    padding-inline: 0.5rem;
+    outline: 1px solid var(--bl-foreground-color-secondary);
+    // outline-offset: -1px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+      @include body-2();
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      z-index: 1;
+      border: none;
+      background: none;
+      color: var(--bl-foreground-color);
+
+      &::placeholder {
+        @include body-2(false);
+        color: var(--bl-foreground-color-secondary);
+        opacity: 1;
+      }
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    .unit {
+      @include quiet-2();
+      text-wrap: nowrap;
+      width: fit-content;
+      color: var(--bl-foreground-color-secondary);
+    }
+
+    &:hover {
+      outline-color: var(--bl-foreground-color);
+    }
+
+    &:has(input:focus-within) {
+      border-color: transparent;
+      outline:
+        2px
+        solid
+        var(--bl-active-stroke-color);
+    }
+  }
+
+  legend {
+    @include quiet-1();
+    margin-top: 2px;
+    margin-left: 14px;
+    color: var(--bl-foreground-color);
+  }
+
+  &.input--error, &:has(input:invalid) {
+    --bl-foreground-color: var(--bl-error-foreground-color) !important;
+    --bl-foreground-color-secondary: var(--bl-error-foreground-color) !important;
+    --bl-active-stroke-color: var(--bl-error-foreground-color) !important;
+  }
+
+  &:has(input:disabled) {
+    cursor: not-allowed;
+
+    label, .field, input {
+      cursor: not-allowed;
+    }
+
+    .field {
+      outline-color: var(--bl-disabled-foreground-color-secondary);
+    }
+
+    label, input, legend {
+      color: var(--bl-disabled-foreground-color);
+    }
+
+    input::placeholder, .unit {
+      color: var(--bl-disabled-foreground-color-secondary);
+    }
+  }
+}

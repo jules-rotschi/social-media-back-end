@@ -1,0 +1,36 @@
+@use '../tokens' as *;
+@use '../abstract/' as *;
+
+.icon-button {
+  
+  html[data-theme="light"] & {
+    --bl-hover-background-color: #{$bl-sys-color-dark-opacity-10};
+    --bl-active-background-color: #{$bl-sys-color-dark-opacity-20};
+  }
+
+  html[data-theme="dark"] & {
+    --bl-hover-background-color: #{$bl-sys-color-light-opacity-10};
+    --bl-active-background-color: #{$bl-sys-color-light-opacity-20};
+  }
+
+  display: inline-flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 100vmax;
+  color: var(--bl-foreground-color);
+  background-color: transparent;
+  @include appearence-transition(background-color);
+
+  &:not(:disabled):hover {
+    background-color: var(--bl-hover-background-color);
+  }
+
+  &:not(:disabled):active {
+    background-color: var(--bl-active-background-color);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}

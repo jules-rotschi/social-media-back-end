@@ -1,0 +1,230 @@
+@use '../tokens/' as *;
+@use '../abstract/breakpoints' as *;
+
+@mixin website-title() {
+  font-family: $bl-sys-font-family-display;
+  font-weight: $bl-prim-font-weight-black;
+  font-size: 6rem;
+  line-height: 6rem;
+  letter-spacing: 0px;
+}
+
+@mixin website-subtitle() {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-light;
+  font-size: 3rem;
+  line-height: 4.5rem;
+  letter-spacing: 0px;
+}
+
+@mixin display() {
+  font-family: $bl-sys-font-family-display;
+  font-weight: $bl-prim-font-weight-extra-bold;
+  font-size: 2rem;
+  line-height: 2rem;
+  letter-spacing: 0px;
+
+  @include above-breakpoint('small') {
+    font-size: 4rem;
+    line-height: 4rem;
+    letter-spacing: 0px;
+  }
+}
+
+@mixin headline-1() {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-bold;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+
+  @include above-breakpoint('small') {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}
+
+@mixin headline-2() {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-medium;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+
+  @include above-breakpoint('small') {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+}
+
+@mixin headline-3() {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-light;
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+
+  @include above-breakpoint('small') {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
+
+@mixin title-1() {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-bold;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+
+  @include above-breakpoint('small') {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
+
+@mixin title-2() {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-bold;
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+
+  @include above-breakpoint('small') {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+}
+
+@mixin title-3() {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-bold;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+
+  @include above-breakpoint('small') {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+}
+
+@mixin label-1() {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-semi-bold;
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: 0.5px;
+}
+
+@mixin label-2() {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-semi-bold;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  letter-spacing: 0.5px;
+}
+
+@mixin label-3() {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-semi-bold;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.5px;
+}
+
+@mixin body-1($real-element: true) {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-medium;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+  
+  @include above-breakpoint('small') {
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
+
+  @if ($real-element == true) {
+    & > strong, & > b {
+      font-weight: $bl-prim-font-weight-extra-bold;
+    }
+  }
+}
+
+@mixin body-2($real-element: true) {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-regular;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+
+  @include above-breakpoint('small') {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  @if ($real-element == true) {
+    & > strong, & > b {
+      font-weight: $bl-prim-font-weight-bold;
+    }
+  }
+}
+
+@mixin body-3($real-element: true) {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-regular;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+
+  @include above-breakpoint('small') {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+
+  @if ($real-element == true) {
+    & > strong, & > b {
+      font-weight: $bl-prim-font-weight-bold;
+    }
+  }
+}
+
+@mixin quiet-1() {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-regular;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+
+  @include above-breakpoint('small') {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+}
+
+@mixin quiet-2() {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-regular;
+  font-size: 0.625rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+
+  @include above-breakpoint('small') {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}
+
+@mixin quiet-3() {
+  font-family: $bl-sys-font-family-main;
+  font-weight: $bl-prim-font-weight-regular;
+  font-size: 0.5rem;
+  line-height: 0.5rem;
+  letter-spacing: 0px;
+
+  @include above-breakpoint('small') {
+    font-size: 0.625rem;
+    line-height: 1rem;
+  }
+}

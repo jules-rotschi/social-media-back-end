@@ -1,0 +1,178 @@
+@use '../primitive/' as *;
+
+// Black & white
+
+$bl-sys-color-light: $bl-prim-color-white;
+$bl-sys-color-dark: $bl-prim-color-black;
+
+$bl-sys-color-light-opacity-10: $bl-prim-color-white-opacity-10;
+$bl-sys-color-light-opacity-20: $bl-prim-color-white-opacity-20;
+$bl-sys-color-light-opacity-30: $bl-prim-color-white-opacity-30;
+$bl-sys-color-light-opacity-40: $bl-prim-color-white-opacity-40;
+$bl-sys-color-light-opacity-50: $bl-prim-color-white-opacity-50;
+$bl-sys-color-light-opacity-60: $bl-prim-color-white-opacity-60;
+$bl-sys-color-light-opacity-70: $bl-prim-color-white-opacity-70;
+$bl-sys-color-light-opacity-80: $bl-prim-color-white-opacity-80;
+$bl-sys-color-light-opacity-90: $bl-prim-color-white-opacity-90;
+
+$bl-sys-color-dark-opacity-10: $bl-prim-color-black-opacity-10;
+$bl-sys-color-dark-opacity-20: $bl-prim-color-black-opacity-20;
+$bl-sys-color-dark-opacity-30: $bl-prim-color-black-opacity-30;
+$bl-sys-color-dark-opacity-40: $bl-prim-color-black-opacity-40;
+$bl-sys-color-dark-opacity-50: $bl-prim-color-black-opacity-50;
+$bl-sys-color-dark-opacity-60: $bl-prim-color-black-opacity-60;
+$bl-sys-color-dark-opacity-70: $bl-prim-color-black-opacity-70;
+$bl-sys-color-dark-opacity-80: $bl-prim-color-black-opacity-80;
+$bl-sys-color-dark-opacity-90: $bl-prim-color-black-opacity-90;
+
+// Neutral
+
+$bl-sys-color-neutral-050: $bl-prim-color-gray-050;
+$bl-sys-color-neutral-100: $bl-prim-color-gray-100;
+$bl-sys-color-neutral-200: $bl-prim-color-gray-200;
+$bl-sys-color-neutral-300: $bl-prim-color-gray-300;
+$bl-sys-color-neutral-400: $bl-prim-color-gray-400;
+$bl-sys-color-neutral-500: $bl-prim-color-gray-500;
+$bl-sys-color-neutral-600: $bl-prim-color-gray-600;
+$bl-sys-color-neutral-700: $bl-prim-color-gray-700;
+$bl-sys-color-neutral-800: $bl-prim-color-gray-800;
+$bl-sys-color-neutral-900: $bl-prim-color-gray-900;
+$bl-sys-color-neutral-950: $bl-prim-color-gray-950;
+
+$bl-sys-color-neutral-main: $bl-sys-color-neutral-500;
+
+$bl-sys-color-neutral-opacity-10: rgba($bl-sys-color-neutral-main, 0.1);
+$bl-sys-color-neutral-opacity-20: rgba($bl-sys-color-neutral-main, 0.2);
+$bl-sys-color-neutral-opacity-30: rgba($bl-sys-color-neutral-main, 0.3);
+$bl-sys-color-neutral-opacity-40: rgba($bl-sys-color-neutral-main, 0.4);
+$bl-sys-color-neutral-opacity-50: rgba($bl-sys-color-neutral-main, 0.5);
+$bl-sys-color-neutral-opacity-60: rgba($bl-sys-color-neutral-main, 0.6);
+$bl-sys-color-neutral-opacity-70: rgba($bl-sys-color-neutral-main, 0.7);
+$bl-sys-color-neutral-opacity-80: rgba($bl-sys-color-neutral-main, 0.8);
+$bl-sys-color-neutral-opacity-90: rgba($bl-sys-color-neutral-main, 0.9);
+
+// Primary
+
+$bl-sys-color-primary-050: $bl-prim-color-blue-050;
+$bl-sys-color-primary-100: $bl-prim-color-blue-100;
+$bl-sys-color-primary-200: $bl-prim-color-blue-200;
+$bl-sys-color-primary-300: $bl-prim-color-blue-300;
+$bl-sys-color-primary-400: $bl-prim-color-blue-400;
+$bl-sys-color-primary-500: $bl-prim-color-blue-500;
+$bl-sys-color-primary-600: $bl-prim-color-blue-600;
+$bl-sys-color-primary-700: $bl-prim-color-blue-700;
+$bl-sys-color-primary-800: $bl-prim-color-blue-800;
+$bl-sys-color-primary-900: $bl-prim-color-blue-900;
+$bl-sys-color-primary-950: $bl-prim-color-blue-950;
+
+$bl-sys-color-primary-main: $bl-sys-color-primary-700;
+
+$bl-sys-color-primary-opacity-20: rgba($bl-sys-color-primary-main, 0.2);
+$bl-sys-color-primary-opacity-40: rgba($bl-sys-color-primary-main, 0.4);
+$bl-sys-color-primary-opacity-60: rgba($bl-sys-color-primary-main, 0.6);
+$bl-sys-color-primary-opacity-80: rgba($bl-sys-color-primary-main, 0.8);
+
+// Secondary
+
+$bl-sys-color-secondary-050: $bl-prim-color-gold-050;
+$bl-sys-color-secondary-100: $bl-prim-color-gold-100;
+$bl-sys-color-secondary-200: $bl-prim-color-gold-200;
+$bl-sys-color-secondary-300: $bl-prim-color-gold-300;
+$bl-sys-color-secondary-400: $bl-prim-color-gold-400;
+$bl-sys-color-secondary-500: $bl-prim-color-gold-500;
+$bl-sys-color-secondary-600: $bl-prim-color-gold-600;
+$bl-sys-color-secondary-700: $bl-prim-color-gold-700;
+$bl-sys-color-secondary-800: $bl-prim-color-gold-800;
+$bl-sys-color-secondary-900: $bl-prim-color-gold-900;
+$bl-sys-color-secondary-950: $bl-prim-color-gold-950;
+
+$bl-sys-color-secondary-main: $bl-sys-color-secondary-300;
+
+$bl-sys-color-secondary-opacity-20: rgba($bl-sys-color-secondary-main, 0.2);
+$bl-sys-color-secondary-opacity-40: rgba($bl-sys-color-secondary-main, 0.4);
+$bl-sys-color-secondary-opacity-60: rgba($bl-sys-color-secondary-main, 0.6);
+$bl-sys-color-secondary-opacity-80: rgba($bl-sys-color-secondary-main, 0.8);
+
+// Info
+
+$bl-sys-color-info-050: $bl-prim-color-blue-050;
+$bl-sys-color-info-100: $bl-prim-color-blue-100;
+$bl-sys-color-info-200: $bl-prim-color-blue-200;
+$bl-sys-color-info-300: $bl-prim-color-blue-300;
+$bl-sys-color-info-400: $bl-prim-color-blue-400;
+$bl-sys-color-info-500: $bl-prim-color-blue-500;
+$bl-sys-color-info-600: $bl-prim-color-blue-600;
+$bl-sys-color-info-700: $bl-prim-color-blue-700;
+$bl-sys-color-info-800: $bl-prim-color-blue-800;
+$bl-sys-color-info-900: $bl-prim-color-blue-900;
+$bl-sys-color-info-950: $bl-prim-color-blue-950;
+
+$bl-sys-color-info-main: $bl-sys-color-info-700;
+
+$bl-sys-color-info-opacity-20: rgba($bl-sys-color-info-main, 0.2);
+$bl-sys-color-info-opacity-40: rgba($bl-sys-color-info-main, 0.4);
+$bl-sys-color-info-opacity-60: rgba($bl-sys-color-info-main, 0.6);
+$bl-sys-color-info-opacity-80: rgba($bl-sys-color-info-main, 0.8);
+
+// Success
+
+$bl-sys-color-success-050: $bl-prim-color-green-050;
+$bl-sys-color-success-100: $bl-prim-color-green-100;
+$bl-sys-color-success-200: $bl-prim-color-green-200;
+$bl-sys-color-success-300: $bl-prim-color-green-300;
+$bl-sys-color-success-400: $bl-prim-color-green-400;
+$bl-sys-color-success-500: $bl-prim-color-green-500;
+$bl-sys-color-success-600: $bl-prim-color-green-600;
+$bl-sys-color-success-700: $bl-prim-color-green-700;
+$bl-sys-color-success-800: $bl-prim-color-green-800;
+$bl-sys-color-success-900: $bl-prim-color-green-900;
+$bl-sys-color-success-950: $bl-prim-color-green-950;
+
+$bl-sys-color-success-main: $bl-sys-color-success-400;
+
+$bl-sys-color-success-opacity-20: rgba($bl-sys-color-success-main, 0.2);
+$bl-sys-color-success-opacity-40: rgba($bl-sys-color-success-main, 0.4);
+$bl-sys-color-success-opacity-60: rgba($bl-sys-color-success-main, 0.6);
+$bl-sys-color-success-opacity-80: rgba($bl-sys-color-success-main, 0.8);
+
+// Warning
+
+$bl-sys-color-warning-050: $bl-prim-color-gold-050;
+$bl-sys-color-warning-100: $bl-prim-color-gold-100;
+$bl-sys-color-warning-200: $bl-prim-color-gold-200;
+$bl-sys-color-warning-300: $bl-prim-color-gold-300;
+$bl-sys-color-warning-400: $bl-prim-color-gold-400;
+$bl-sys-color-warning-500: $bl-prim-color-gold-500;
+$bl-sys-color-warning-600: $bl-prim-color-gold-600;
+$bl-sys-color-warning-700: $bl-prim-color-gold-700;
+$bl-sys-color-warning-800: $bl-prim-color-gold-800;
+$bl-sys-color-warning-900: $bl-prim-color-gold-900;
+$bl-sys-color-warning-950: $bl-prim-color-gold-950;
+
+$bl-sys-color-warning-main: $bl-sys-color-warning-300;
+
+$bl-sys-color-warning-opacity-20: rgba($bl-sys-color-warning-main, 0.2);
+$bl-sys-color-warning-opacity-40: rgba($bl-sys-color-warning-main, 0.4);
+$bl-sys-color-warning-opacity-60: rgba($bl-sys-color-warning-main, 0.6);
+$bl-sys-color-warning-opacity-80: rgba($bl-sys-color-warning-main, 0.8);
+
+// Critical
+
+$bl-sys-color-critical-050: $bl-prim-color-red-050;
+$bl-sys-color-critical-100: $bl-prim-color-red-100;
+$bl-sys-color-critical-200: $bl-prim-color-red-200;
+$bl-sys-color-critical-300: $bl-prim-color-red-300;
+$bl-sys-color-critical-400: $bl-prim-color-red-400;
+$bl-sys-color-critical-500: $bl-prim-color-red-500;
+$bl-sys-color-critical-600: $bl-prim-color-red-600;
+$bl-sys-color-critical-700: $bl-prim-color-red-700;
+$bl-sys-color-critical-800: $bl-prim-color-red-800;
+$bl-sys-color-critical-900: $bl-prim-color-red-900;
+$bl-sys-color-critical-950: $bl-prim-color-red-950;
+
+$bl-sys-color-critical-main: $bl-sys-color-critical-700;
+
+$bl-sys-color-critical-opacity-20: rgba($bl-sys-color-critical-main, 0.2);
+$bl-sys-color-critical-opacity-40: rgba($bl-sys-color-critical-main, 0.4);
+$bl-sys-color-critical-opacity-60: rgba($bl-sys-color-critical-main, 0.6);
+$bl-sys-color-critical-opacity-80: rgba($bl-sys-color-critical-main, 0.8);

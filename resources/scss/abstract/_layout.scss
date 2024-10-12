@@ -1,0 +1,22 @@
+@mixin row($align: stretch, $justify: start) {
+  width: calc(100% + var(--bl-gutter-width));
+  margin-inline: calc(-0.5 * var(--bl-gutter-width));
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-wrap: wrap;
+}
+
+@mixin row-item($grows: false) {
+  flex: 0 0 auto;
+  @if $grows {flex-grow: 1};
+  padding-inline: calc(0.5 * var(--bl-gutter-width));
+}
+
+@mixin width-in-column($number-of-columns) {
+  width: calc($number-of-columns * var(--bl-column-width));
+}
+
+@mixin offset-in-column($number-of-columns) {
+  margin-left: calc($number-of-columns * var(--bl-column-width));
+}

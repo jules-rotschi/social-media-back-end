@@ -49,17 +49,25 @@ export default class AuthController {
     return view.render('reset_password_form', { userId });
   }
 
-  async resetPassword({ request, response }: HttpContext) {
+  async resetPassword({ request, response, view }: HttpContext) {
+    console.log('controller');
+    
     if (!request.hasValidSignature()) {
       return response.badRequest('L\'URL est invalide ou expiré.')
     }
     const data = request.only(['password', 'passwordConfirmation']);
-    const payload = await resetPasswordValidator.validate(data);
-    const userId = parseInt(request.param('userId'));
-    await this.resetPasswordUsecase.handle(
-      userId,
-      payload.password
-    );
-    return response.redirect().toRoute('auth.passwordSuccessfullyReset');
+    const [errors, payload] = await resetPasswordValidator.tryValidate(data);
+    if (errors) {
+      const userId = parseInt(request.param('userId'));
+      return view.render('reset_password_form', { userId, errorMessages: errors.messages })
+    }
+    if (payload) {
+      const userId = parseInt(request.param('userId'));
+      await this.resetPasswordUsecase.handle(
+        userId,
+        payload.password
+      );
+      return response.redirect().toRoute('auth.passwordSuccessfullyReset');
+    }
   }
 }

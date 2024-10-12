@@ -1,0 +1,35 @@
+@let(typeClass = " snackbar--info")
+@let(icon = "icons::info")
+
+@if(type === "info")
+  @assign(typeClass = " snackbar--info")
+  @assign(icon = "icons::info")
+
+@elseif(type === "success")
+  @assign(typeClass = " snackbar--success")
+  @assign(icon = "icons::success")
+
+@elseif(type === "warning")
+  @assign(typeClass = " snackbar--warning")
+  @assign(icon = "icons::warning")
+
+@elseif(type === "critical")
+  @assign(typeClass = " snackbar--critical")
+  @assign(icon = "icons::alert")
+
+@end
+
+<div class="{{'snackbar' + typeClass}}" id="{{id || 'snackbar-id'}}">
+  <div class="snackbar__start">
+    <span class="snackbar__icon">
+      @!component(icon, {size: 24})
+    </span>
+    <div class="snackbar__content">
+      <div class="snackbar__title">{{title || "Title"}}</div>
+      <div class="snackbar__message">{{message || "Message"}}</div>
+    </div>
+  </div>
+  @!component('components::icon-button', {
+    icon: 'icons::cross',
+  })
+</div>

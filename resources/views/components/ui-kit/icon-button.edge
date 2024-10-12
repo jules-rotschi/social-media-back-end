@@ -1,0 +1,40 @@
+@if(link)
+  <a
+    href="{{link}}"
+    @if(externalLink)
+      target="_blank"
+    @end
+    class="{{'icon-button' + (customClass ? ` ${customClass}` : '')}}"
+    @if(id)
+      id="{{id}}"
+    @end
+    @if(tabIndex)
+      tabindex="{{tabIndex}}"
+    @end
+  >
+    @!component((icon || "icons::code"), {size: 24})
+  </a>
+
+@else
+  <button
+    type="{{type || 'button'}}"
+    class="{{'icon-button' + (customClass ? ` ${customClass}` : '')}}"
+    @if(id)
+      id="{{id}}"
+    @end
+    @if(tabIndex)
+      tabindex="{{tabIndex}}"
+    @end
+    @if(disabled)
+      disabled
+    @end
+    @if(popoverTarget)
+      popovertarget="{{popoverTarget}}"
+    @end
+    @if(popoverTargetAction)
+      popovertargetaction="{{popoverTargetAction}}"
+    @end
+  >
+    @!component((icon || "icons::code"), {size: 24})
+  </button>
+@end

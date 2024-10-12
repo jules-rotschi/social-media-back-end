@@ -1,0 +1,80 @@
+@use '../tokens' as *;
+@use '../abstract' as *;
+
+.snackbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 20rem;
+  width: max-content;
+  padding: 0.75rem 1rem;
+  border-radius: 1.25rem;
+  color: var(--bl-text-color);
+  --bl-text-color: #{$bl-sys-color-light};
+  
+  @include dynamic-background-gradient(
+    var(--bl-bottom-background-color),
+    var(--bl-top-background-color),
+    "top"
+  );
+    
+  .icon-button {
+    color: inherit;
+  }
+  
+  @include above-breakpoint('small') {
+    min-width: 26rem;
+    padding: 1rem 1.5rem;
+  }
+}
+  
+.snackbar--info {
+  --bl-bottom-background-color: #{$bl-sys-color-info-800};
+  --bl-top-background-color: #{$bl-sys-color-info-700};
+}
+
+.snackbar--success {
+  --bl-bottom-background-color: #{$bl-sys-color-success-800};
+  --bl-top-background-color: #{$bl-sys-color-success-700};
+}
+
+.snackbar--warning {
+  --bl-bottom-background-color: #{$bl-sys-color-warning-800};
+  --bl-top-background-color: #{$bl-sys-color-warning-700};
+}
+
+.snackbar--critical {
+  --bl-bottom-background-color: #{$bl-sys-color-critical-800};
+  --bl-top-background-color: #{$bl-sys-color-critical-700};
+}
+
+.snackbar__start {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  @include above-breakpoint('small') {
+    gap: 1rem;
+  }
+}
+
+.snackbar__icon {
+  display: flex;
+  
+  @include under-breakpoint('small') {
+    width: 1rem;
+  }
+}
+
+.snackbar__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.snackbar__title {
+  @include title-3();
+}
+
+.snackbar__message {
+  @include body-2();
+}

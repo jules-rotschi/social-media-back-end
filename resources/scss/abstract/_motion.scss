@@ -1,0 +1,7 @@
+@mixin appearence-transition($property) {
+    transition: $property 100ms ease-out;
+}
+
+@mixin transform-transition() {
+  transition: transform 200ms ease-in-out;
+}

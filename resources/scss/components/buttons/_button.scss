@@ -1,0 +1,96 @@
+@use '../../abstract' as *;
+@use './button-colors' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  vertical-align: middle;
+  @include appearence-transition(all);
+  @include button-colors();
+
+  &.button-neutral {
+    @include button-colors('neutral');
+  }
+
+  &.button-primary {
+    @include button-colors('primary');
+  }
+
+  &.button-info {
+    @include button-colors('info');
+  }
+
+  &.button-success {
+    @include button-colors('success');
+  }
+
+  &.button-warning {
+    @include button-colors('warning');
+  }
+
+  &.button-critical {
+    @include button-colors('critical');
+  }
+
+  &.button-filled {
+    color: var(--bl-filled-foreground-color);
+    background-color: var(--bl-filled-background-color);
+
+    &:not(:disabled):hover {
+      background-color: var(--bl-filled-hover-background-color);
+    }
+
+    &:not(:disabled):active {
+      background-color: var(--bl-filled-active-background-color);
+    }
+  }
+
+  &.button-outlined {
+    outline: 1px solid;
+    outline-color: var(--bl-outlined-border-color);
+    outline-offset: -1px;
+    color: var(--bl-outlined-foreground-color);
+    background: none;
+
+    &:not(:disabled):hover {
+      outline-width: 2px;
+      outline-color: var(--bl-outlined-hover-border-color);
+      background-color: var(--bl-outlined-hover-background-color);
+    }
+
+    &:not(:disabled):active {
+      outline-width: 2px;
+      outline-color: var(--bl-outlined-active-border-color);
+      background-color: var(--bl-outlined-active-background-color);
+    }
+  }
+
+  &.button-ghost {
+    padding: 0.25rem 0.5rem;
+    color: var(--bl-ghost-color);
+    background-color: transparent;
+
+    &:not(:disabled):hover {
+      background-color: var(--bl-ghost-hover-background-color);
+    }
+
+    &:not(:disabled):active {
+      background-color: var(--bl-ghost-active-background-color);
+    }
+  }
+  
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .label {
+    @include label-2();
+    text-align: center;
+  }
+}

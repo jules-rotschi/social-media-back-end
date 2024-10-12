@@ -1,0 +1,4 @@
+@use "../primitive/" as *;
+
+$bl-sys-font-family-display: $bl-prim-font-family-trirong, $bl-prim-default-font-family;
+$bl-sys-font-family-main: $bl-prim-font-family-raleway, $bl-prim-default-font-family;

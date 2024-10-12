@@ -1,0 +1,30 @@
+@use '../abstract' as *;
+@use '../tokens' as *;
+
+.navlink {
+
+  html[data-theme="light"] & {
+    --bl-color: #{$bl-sys-color-neutral-400};
+    --bl-hover-color: #{$bl-sys-color-primary-600};
+    --bl-current-color: #{$bl-sys-color-primary-800};
+  }
+
+  html[data-theme="dark"] & {
+    --bl-color: #{$bl-sys-color-neutral-500};
+    --bl-hover-color: #{$bl-sys-color-secondary-500};
+    --bl-current-color: #{$bl-sys-color-secondary-400};
+  }
+
+  @include label-1();
+  padding: 0.25rem 0.5rem;
+  color: var(--bl-color);
+  @include appearence-transition(color);
+
+  &:hover {
+    color: var(--bl-hover-color);
+  }
+
+  &.navlink--current {
+    color: var(--bl-current-color);
+  }
+}

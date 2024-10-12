@@ -1,0 +1,93 @@
+@use '../../abstract/' as *;
+@use './button-colors' as *;
+
+.small-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  vertical-align: middle;
+  @include appearence-transition(all);
+  @include button-colors();
+
+  &.button-neutral {
+    @include button-colors('neutral');
+  }
+
+  &.button-primary {
+    @include button-colors('primary');
+  }
+
+  &.button-info {
+    @include button-colors('info');
+  }
+
+  &.button-success {
+    @include button-colors('success');
+  }
+
+  &.button-warning {
+    @include button-colors('warning');
+  }
+
+  &.button-critical {
+    @include button-colors('critical');
+  }
+
+  &.button-filled {
+    color: var(--bl-filled-foreground-color);
+    @include dynamic-background-gradient(var(--bl-filled-static-background-color), var(--bl-filled-dynamic-background-color), "top");
+
+    html[data-theme="dark"] &.button-neutral {
+      @include dynamic-background-gradient(var(--bl-filled-static-background-color), var(--bl-filled-dynamic-background-color), "bottom");
+    }
+
+    &:not(:disabled):hover {
+      @include dynamic-background-gradient(var(--bl-filled-static-background-color), var(--bl-filled-hover-dynamic-background-color), "top");
+
+      html[data-theme="dark"] &.button-neutral {
+        @include dynamic-background-gradient(var(--bl-filled-static-background-color), var(--bl-filled-hover-dynamic-background-color), "bottom");
+      }
+    }
+
+    &:not(:disabled):active {
+      @include dynamic-background-gradient(var(--bl-filled-static-background-color), var(--bl-filled-active-dynamic-background-color), "top");
+
+      html[data-theme="dark"] &.button-neutral {
+        @include dynamic-background-gradient(var(--bl-filled-static-background-color), var(--bl-filled-active-dynamic-background-color), "bottom");
+      }
+    }
+  }
+
+  &.button-outlined {
+    border: 1px solid;
+    border-color: var(--bl-outlined-border-color);
+    color: var(--bl-outlined-foreground-color);
+    background: none;
+
+    &:not(:disabled):hover {
+      border-color: var(--bl-outlined-hover-border-color);
+      background-color: var(--bl-outlined-hover-background-color);
+    }
+
+    &:not(:disabled):active {
+      border-color: var(--bl-outlined-active-border-color);
+      background-color: var(--bl-outlined-active-background-color);
+    }
+  }
+  
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  span {
+    @include label-2();
+  }
+
+  span:has(> svg) {
+    display: grid;
+  }
+}

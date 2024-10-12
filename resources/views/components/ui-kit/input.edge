@@ -1,0 +1,55 @@
+@let(errorClass = invalid ? ' input--error' : '')
+
+<div class="{{'input' + errorClass + (customClass ? ` ${customClass}` : '')}}">
+  <div class="label-container">
+    <label for="{{id || 'input-id'}}">{{label || 'Label'}}</label>
+  </div>
+  <div class="field">
+    <input
+      type="{{type || "text"}}"
+      id="{{id || 'input-id'}}"
+      @if(placeholder)
+        placeholder="{{placeholder}}"
+      @end
+      @if(name)
+        name="{{name}}"
+      @end
+      @if(size)
+        size="{{size}}"
+      @end
+      @if(initialValue)
+        value="{{initialValue}}"
+      @end
+      @if(maxLength)
+        maxlength="{{maxLength}}"
+      @end
+      @if(minLength)
+        minlength="{{minLength}}"
+      @end
+      @if(pattern)
+        pattern="{{pattern}}"
+      @end
+      @if(max)
+        max="{{max}}"
+      @end
+      @if(min)
+        min="{{min}}"
+      @end
+      @if(tabIndex)
+        tabindex="{{tabIndex}}"
+      @end
+      @if(disabled)
+        disabled
+      @end
+      @if(required)
+        required
+      @end
+    />
+    @if(unit)
+      <span class="unit">{{unit}}</span>
+    @end
+  </div>
+  @if(error || legend)
+    <legend>{{error || legend}}</legend>
+  @end
+</div>

@@ -1,0 +1,13 @@
+<div
+  class="{{'badge' + (customClass ? ` ${customClass}` : '')}}"
+  @if(id)
+    id="{{id}}"
+  @end
+>
+  @if(icon)
+    <span class="icon">
+      @!component(icon, {size: 16})
+    </span>
+  @end
+  <span class="label">{{ label || "Label" }}</span>
+</div>

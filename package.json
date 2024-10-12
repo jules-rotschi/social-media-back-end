@@ -11,7 +11,8 @@
     "test": "node ace test",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "sass": "sass resources/scss/styles.scss:resources/css/app.css"
   },
   "imports": {
     "#entities/*": "./src/domain/models/entities/*.js",

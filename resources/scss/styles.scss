@@ -1,0 +1,257 @@
+@use './base';
+@use './components';
+
+@use './abstract' as *;
+
+:root:has(.onboarding-card) {
+  --bl-header-height: 0px;
+  --bl-footer-height: 0px;
+}
+
+.container:has(.onboarding-card) {
+  @include above-breakpoint('small') {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 8rem;
+
+    html[data-theme="light"] & {
+      background: linear-gradient(135deg, $primary-050 35%, $primary-300);
+    }
+  
+    html[data-theme="dark"] & {
+      background: linear-gradient(135deg, $primary-950, $primary-800);
+    }
+  }
+}
+
+.website-introduction {
+  max-width: 45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @include under-breakpoint('small') {
+    display: none;
+  }
+}
+
+.website-introduction__title {
+  @include website-title();
+  html[data-theme="light"] & {
+    color: $primary-950;
+  }
+  html[data-theme="dark"] & {
+    color: $primary-050;
+  }
+}
+
+.website-introduction__subtitle {
+  @include website-subtitle();
+  html[data-theme="light"] & {
+    color: $primary-900;
+  }
+  html[data-theme="dark"] & {
+    color: $primary-100;
+  }
+}
+
+.website-introduction__buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.go-to-signup {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-1 * var(--bl-page-margin));
+  display: grid;
+  place-items: center;
+  gap: 1.5rem;
+  border-radius: 0 0 2rem 2rem;
+  padding: 2rem;
+  z-index: 1;
+  @include shadow();
+
+  html[data-theme="light"] & {
+    background-color: $primary-050;
+  }
+
+  html[data-theme="dark"] & {
+    background-color: $neutral-900;
+  }
+
+  @include above-breakpoint('small') {
+    display: none;
+  }
+
+  .go-to-signup__title {
+    @include body-1();
+  }
+
+  .buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+.onboarding-card {
+  position: relative;
+  background-color: var(--bl-background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  padding-top: 4rem;
+  
+  @include above-breakpoint('small') {
+    border-radius: 2rem;
+  }
+
+  @include under-breakpoint('small') {
+    width: 100vw;
+    min-height: 100dvh;
+    margin-left: calc(-1 * var(--bl-page-margin))
+  }
+
+  &:has(> .back-button) {
+    @include above-breakpoint('small') {
+      padding-top: 6rem;
+    }
+  }
+
+  .back-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  
+    @include above-breakpoint('small') {
+      top: 2rem;
+      left: 2rem;
+    }
+  }
+
+  .buttons {
+    display: grid;
+    gap: 0.5rem;
+  }
+}
+
+.onboarding-card__title {
+  @include headline-2();
+  text-align: center;
+}
+
+.onboarding-card__small-title {
+  @include body-1();
+  text-align: center
+}
+
+.onboarding-card__paragraph {
+  @include body-2();
+}
+
+.onboarding-card__form-errors {
+  html[data-theme="light"] & {
+    --bl-foreground-color: #{$critical-700};
+  }
+  html[data-theme="dark"] & {
+    --bl-foreground-color: #{$critical-400};
+  }
+  color: var(--bl-foreground-color);
+  margin-top: 2rem;
+
+  @include above-breakpoint('small') {
+    margin-top: 3rem;
+  }
+
+  p {
+    @include body-3();
+    text-align: center;
+
+    @include under-breakpoint('small') {
+      margin-bottom: 0.5rem;
+    }
+
+    &:last-child {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.onboarding-card__form {
+
+  width: 100%;
+
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+
+  fieldset {
+    display: grid;
+    gap: 1.5rem;
+  }
+}
+
+.onboarding-card__form .button, .go-to-signup .button {
+  width: 100%;
+}
+
+.onboarding-card__content {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.5rem;
+
+  .onboarding-card__paragraph, .onboarding-card__small-title {  
+    html[data-theme="light"] & {
+      --bl-foreground-color: #{$neutral-800};
+    }
+  
+    html[data-theme="dark"] & {
+      --bl-foreground-color: #{$neutral-200};
+    }
+
+    color: var(--bl-foreground-color);
+  }
+
+  @include above-breakpoint('small') {
+    margin-top: 3rem;
+  }
+}
+
+.reset-password {  
+  .onboarding-card {
+    @include above-breakpoint('small') {
+      width: 28.5rem;
+    }
+  }
+}
+
+.password-reset {
+  .onboarding-card {
+    gap: 1.5rem;
+
+    @include above-breakpoint('small') {
+      width: 28.5rem;
+    }
+
+    .button {
+      width: 100%;
+    }
+  }
+
+  .onboarding-card__content {
+    margin-top: 0;
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
