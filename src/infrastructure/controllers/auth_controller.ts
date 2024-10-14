@@ -1,5 +1,5 @@
 import { LoginUsecase } from "#usecases/auth/login_usecase";
-import { SendResetPasswordEmailUsecase } from "#usecases/auth/send_reset_password_email_usecase";
+import { ForgottenPasswordUsecase } from "#usecases/auth/forgotten_password_usecase";
 import { HttpContext } from "@adonisjs/core/http";
 import { inject } from "@adonisjs/core";
 import { signupValidator } from "#validators/signup_validator";
@@ -15,7 +15,7 @@ export default class AuthController {
   constructor(
     private signupUsecase: SignupUsecase,
     private loginUsecase: LoginUsecase,
-    private sendResetPasswordEmailUsecase: SendResetPasswordEmailUsecase,
+    private forgottenPasswordUsecase: ForgottenPasswordUsecase,
     private resetPasswordUsecase: ResetPasswordUsecase
   ) {}
 
@@ -38,7 +38,7 @@ export default class AuthController {
   async sendResetPasswordEmail({ request }: HttpContext) {
     const data = request.input('data');
     const payload = await sendResetPasswordEmailValidator.validate(data);
-    return this.sendResetPasswordEmailUsecase.handle(payload.email);
+    return this.forgottenPasswordUsecase.handle(payload.email);
   }
 
   async getResetPasswordForm({ request, response, view }: HttpContext) {

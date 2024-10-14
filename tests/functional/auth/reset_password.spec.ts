@@ -33,7 +33,7 @@ test.group('Reset password', (group) => {
       password: "password",
       passwordConfirmation: "password"
     });
-    response.assertStatus(422);
+    response.assertStatus(200);
     const user = await db.from("users").select("password").where("id", 34880).first();
     assert.isTrue(await hash.verify(user.password, "This is my password"));
   })

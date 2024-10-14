@@ -1,16 +1,16 @@
 import { inject } from "@adonisjs/core";
 // import { EmailRepository } from "#contracts/repositories/email_repository";
 import { UserRepository } from "#contracts/repositories/user_repository";
-import router from "@adonisjs/core/services/router";
 import { EmailFactory } from "#value_objects/email";
-// import DomainException from "#exceptions/domain_exception";
+import { UrlRepository } from "#contracts/repositories/url_repository";
 
 @inject()
-export class SendResetPasswordEmailUsecase {
+export class ForgottenPasswordUsecase {
 
   constructor(
     private userRepository: UserRepository,
-    // private emailRepository: EmailRepository
+    // private emailRepository: EmailRepository,
+    private urlRepository: UrlRepository
   ) {}
 
   async handle(email: string) {
@@ -18,20 +18,17 @@ export class SendResetPasswordEmailUsecase {
     const userEmail = emailFactory.create(email);
     const user = await this.userRepository.getByEmail(userEmail)
     
-    if (!user) {
-      return;
-      // throw new DomainException("Cet e-mail n'est associé à aucun compte", { status: 404 });
-    }
+    if (!user) return;
 
-    const signedURL = router
-      .builder()
-      .prefixUrl('http://localhost:3333')
-      .params([user.id])
-      .makeSigned('auth.getResetPasswordForm', {
-        expiresIn: 600000
-      });
+    const signedUrl =
+      this.urlRepository.getSignedUrl(
+        'http://localhost:3333',
+        [user.id],
+        'auth.getResetPasswordForm',
+        600000
+      );
 
-    return signedURL;
+    return signedUrl;
     
     // this.emailRepository.sendResetPasswordEmail(user, signedURL);
   }

@@ -2,6 +2,8 @@ import type { ApplicationService } from '@adonisjs/core/types'
 import { UserRepository } from '#contracts/repositories/user_repository';
 import { AuthRepository } from '#contracts/repositories/auth_repository';
 import { EmailRepository } from '#contracts/repositories/email_repository';
+import { UrlRepository } from '#contracts/repositories/url_repository';
+import { AdonisUrlRepository } from '#repositories/url/adonis_url_repository';
 
 export default class AppProvider {
   constructor(protected app: ApplicationService) {}
@@ -29,6 +31,10 @@ export default class AppProvider {
     
     this.app.container.bind(EmailRepository, () => {
       return this.app.container.make(AdonisEmailRepository);
+    });
+
+    this.app.container.bind(UrlRepository, () => {
+      return this.app.container.make(AdonisUrlRepository);
     });
   }
 
