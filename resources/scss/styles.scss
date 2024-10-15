@@ -222,6 +222,10 @@
 
   @include above-breakpoint('small') {
     margin-top: 3rem;
+
+    .onboarding-card__small-title {
+      order: 1;
+    }
   }
 }
 
@@ -239,6 +243,7 @@
 
     @include above-breakpoint('small') {
       width: 28.5rem;
+      padding-top: 2rem;
     }
 
     .button {
@@ -252,6 +257,19 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+
+    @include above-breakpoint('small') {
+      gap: 0;
+    }
+
+    svg circle {
+      fill: #{$success-600};
+    }
+
+    svg path {
+      fill: var(--bl-background-color);
+    }
   }
 }

@@ -1829,6 +1829,9 @@ html[data-theme=dark] .onboarding-card__content .onboarding-card__paragraph, htm
   .onboarding-card__content {
     margin-top: 3rem;
   }
+  .onboarding-card__content .onboarding-card__small-title {
+    order: 1;
+  }
 }
 
 @media (min-width: 600px) {
@@ -1843,6 +1846,7 @@ html[data-theme=dark] .onboarding-card__content .onboarding-card__paragraph, htm
 @media (min-width: 600px) {
   .password-reset .onboarding-card {
     width: 28.5rem;
+    padding-top: 2rem;
   }
 }
 .password-reset .onboarding-card .button {
@@ -1854,7 +1858,19 @@ html[data-theme=dark] .onboarding-card__content .onboarding-card__paragraph, htm
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+@media (min-width: 600px) {
+  .password-reset .onboarding-card__content {
+    gap: 0;
+  }
+}
+.password-reset .onboarding-card__content svg circle {
+  fill: #229956;
+}
+.password-reset .onboarding-card__content svg path {
+  fill: var(--bl-background-color);
 }
 
 /*# sourceMappingURL=app.css.map */
