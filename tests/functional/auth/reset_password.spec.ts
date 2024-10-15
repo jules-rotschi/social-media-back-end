@@ -12,9 +12,7 @@ test.group('Reset password', (group) => {
       email: "test.user@example.com",
       fullName: "Test user",
       password: "This is my password"
-    })
-    const user = await db.from("users").select("*").where("id", 34880).first();
-    console.log("Created user:", user);
+    });
   });
 
   test('unsigned route', async ({ assert, client }) => {
@@ -25,7 +23,7 @@ test.group('Reset password', (group) => {
     response.assertStatus(400);
     const user = await db.from("users").select("password").where("id", 34880).first();
     assert.isTrue(await hash.verify(user.password, "This is my password"));
-  })
+  });
 
   test('bad password', async ({ assert, client }) => {
     const route = router.builder().params({ userId: 34880 }).makeSigned('auth.resetPassword');
@@ -36,7 +34,7 @@ test.group('Reset password', (group) => {
     response.assertStatus(200);
     const user = await db.from("users").select("password").where("id", 34880).first();
     assert.isTrue(await hash.verify(user.password, "This is my password"));
-  })
+  });
 
   test('successfully reset', async ({ client }) => {
     const route = router.builder().params({ userId: 34880 }).makeSigned('auth.resetPassword');
@@ -52,5 +50,5 @@ test.group('Reset password', (group) => {
       }
     });    
     loginResponse.assertStatus(200);
-  })
-})
+  });
+});

@@ -12,7 +12,7 @@ export class AdonisEmailRepository implements EmailRepository {
     console.log(user);
   }
 
-  async sendResetPasswordEmail(user: User, url: string): Promise<void> {
+  async sendResetPasswordEmail(user: User, url: string): Promise<void> {    
     await mail.send(new ResetPasswordNotification(user, url))
   }
 }

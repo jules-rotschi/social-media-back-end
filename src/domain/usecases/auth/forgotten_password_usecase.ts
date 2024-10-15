@@ -1,5 +1,5 @@
 import { inject } from "@adonisjs/core";
-// import { EmailRepository } from "#contracts/repositories/email_repository";
+import { EmailRepository } from "#contracts/repositories/email_repository";
 import { UserRepository } from "#contracts/repositories/user_repository";
 import { EmailFactory } from "#value_objects/email";
 import { UrlRepository } from "#contracts/repositories/url_repository";
@@ -9,7 +9,7 @@ export class ForgottenPasswordUsecase {
 
   constructor(
     private userRepository: UserRepository,
-    // private emailRepository: EmailRepository,
+    private emailRepository: EmailRepository,
     private urlRepository: UrlRepository
   ) {}
 
@@ -17,7 +17,7 @@ export class ForgottenPasswordUsecase {
     const emailFactory = new EmailFactory();
     const userEmail = emailFactory.create(email);
     const user = await this.userRepository.getByEmail(userEmail)
-    
+
     if (!user) return;
 
     const signedUrl =
@@ -28,8 +28,9 @@ export class ForgottenPasswordUsecase {
         600000
       );
 
-    return signedUrl;
+    // return signedUrl;
     
-    // this.emailRepository.sendResetPasswordEmail(user, signedURL);
+    
+    this.emailRepository.sendResetPasswordEmail(user, signedUrl);
   }
 }

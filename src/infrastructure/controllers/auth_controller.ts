@@ -38,6 +38,7 @@ export default class AuthController {
   async sendResetPasswordEmail({ request }: HttpContext) {
     const data = request.input('data');
     const payload = await sendResetPasswordEmailValidator.validate(data);
+    
     return this.forgottenPasswordUsecase.handle(payload.email);
   }
 
@@ -50,17 +51,19 @@ export default class AuthController {
   }
 
   async resetPassword({ request, response, view }: HttpContext) {
-    console.log('controller');
     
     if (!request.hasValidSignature()) {
       return response.badRequest('L\'URL est invalide ou expiré.')
     }
+
     const data = request.only(['password', 'passwordConfirmation']);
     const [errors, payload] = await resetPasswordValidator.tryValidate(data);
+
     if (errors) {
       const userId = parseInt(request.param('userId'));
       return view.render('reset_password_form', { userId, errorMessages: errors.messages })
     }
+    
     if (payload) {
       const userId = parseInt(request.param('userId'));
       await this.resetPasswordUsecase.handle(

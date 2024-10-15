@@ -1,6 +1,6 @@
 import { AuthRepository } from '#contracts/repositories/auth_repository'
 import { UserRepository } from '#contracts/repositories/user_repository'
-import { FakeAuthRepository } from '#repositories/auth/fake_auth_repository'
+import { InMemoryAuthRepository } from '#repositories/auth/in_memory_auth_repository'
 import { FakeUserRepository } from '#repositories/user/fake_user_repository'
 import { SignupUsecase } from '#usecases/auth/signup_usecase'
 import app from '@adonisjs/core/services/app'
@@ -19,7 +19,7 @@ test.group('Signup usecase', (group) => {
     });
 
     app.container.swap(AuthRepository, () => {
-      return new FakeAuthRepository()
+      return new InMemoryAuthRepository()
     });
 
     const signupUsecase = await app.container.make(SignupUsecase);
@@ -31,6 +31,6 @@ test.group('Signup usecase', (group) => {
       password: 'This is my password'
     });
 
-    assert.equal(data.token, 'token');
+    assert.equal(data.token, 'token-for-user');
   });
 });

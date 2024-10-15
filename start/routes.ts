@@ -20,11 +20,11 @@ router.post("/reset-password/:userId", [AuthController, 'resetPassword']).as('au
 router.on("/password-successfully-reset").render('password_successfully_reset').as('auth.passwordSuccessfullyReset');
 
 router.get("/", ({}) => {
-  return "You are connected"
+  return "You are connected";
 }).use(middleware.auth({ guards: ["api"] }));
 
 router.group(() => {
   router.get("/", ({}) => {
-    return "You are connected as anonymous"
-  })
-}).prefix('/anonymous')
+    return "You are connected as anonymous";
+  });
+}).prefix('/anonymous');

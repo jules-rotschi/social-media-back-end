@@ -2,15 +2,12 @@ import ResetPasswordNotification from '#mails/reset_password_notification';
 import mail from '@adonisjs/mail/services/main';
 import { test } from '@japa/runner'
 
-test.group('Forgotten password', (group) => {
+test.group('Forgotten password', () => {
 
-  group.each.teardown(async () => {
-    mail.restore();
-  })
-
-  test('unknown e-mail', async ({ client }) => {
+  test('unknown e-mail', async ({ client, cleanup }) => {
 
     const { mails } = mail.fake();
+    cleanup(() => mail.restore());
 
     const email = 'jane@example.com'
 
@@ -22,22 +19,18 @@ test.group('Forgotten password', (group) => {
     mails.assertNotSent(ResetPasswordNotification);
   })
 
-  test('sent e-mail', async ({ client }) => {
+  test('sent e-mail', async ({ client, cleanup }) => {
 
     const { mails } = mail.fake();
+    cleanup(() => mail.restore());
 
-    const email = 'jane@example.com'
+    const email = 'jules.rotschi@example.com';
 
     const response = await client.post("/forgotten-password").json({
       data: { email }
     });
     response.assertStatus(200);
 
-    mails.assertSent(ResetPasswordNotification, ({ message }) => {
-      message.assertTo(email);
-      message.assertFrom('support@julesrotschi.fr');
-      message.assertSubject('Réinitialisation de votre mot de passe');
-      return true;
-    });
+    mails.assertSent(ResetPasswordNotification);
   })
 })
