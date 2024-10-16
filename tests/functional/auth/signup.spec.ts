@@ -4,7 +4,7 @@ import { test } from '@japa/runner'
 test.group('Signup', () => {
 
   test('bad request', async ({ client, assert }) => {
-    const response = await client.post('/signup').json({
+    const response = await client.post('/api/v1/signup').json({
       data: {
         username: "john$",
         email: "johnatexample.com",
@@ -19,7 +19,7 @@ test.group('Signup', () => {
   });
 
   test('successful signup', async ({ client, assert }) => {
-    const response = await client.post('/signup').json({
+    const response = await client.post('/api/v1/signup').json({
       data: {
         username: "john",
         email: "john@example.com",
@@ -31,12 +31,13 @@ test.group('Signup', () => {
     
     response.assertStatus(200);
     assert.exists(response.body().data.token);
+    assert.equal(response.body().data.user.username, 'john');
     const createdUserInDatabase = await db.from('users').select("username").where("email", "john@example.com").first();
     assert.equal(createdUserInDatabase.username, "john");
   });
 
   test('username already exists', async ({ client, assert }) => {
-    const response = await client.post('/signup').json({
+    const response = await client.post('/api/v1/signup').json({
       data: {
         username: "john",
         email: "john.doe@example.com",

@@ -7,6 +7,9 @@ export class ResetPasswordUsecase {
   constructor(private userRepository: UserRepository) {}
 
   async handle(userId: number, password: string) {
-    await this.userRepository.update(userId, { password })
+    const updatedUser = await this.userRepository.update(userId, { password });
+    return {
+      user: updatedUser
+    }
   }
 }

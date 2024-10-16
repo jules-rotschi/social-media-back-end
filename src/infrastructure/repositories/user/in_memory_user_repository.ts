@@ -6,7 +6,7 @@ export class InMemoryUserRepository implements UserRepository {
   create(user: User) {
     user.id = mockDatabase.users.length;
     mockDatabase.users.push(user);
-    return Promise.resolve();
+    return Promise.resolve(user);
   }
 
   getByEmail(email: User['email']) {
@@ -16,9 +16,9 @@ export class InMemoryUserRepository implements UserRepository {
 
   update(userId: User["id"], updatedUser: Partial<User>) {
     const user = mockDatabase.users.find((user) => user.id === userId);
-    if (!user || !user.id) return Promise.resolve();
+    if (!user || !user.id) throw new Error();
     const userIndex = mockDatabase.users.indexOf(user);
     mockDatabase.users[userIndex] = { ...user, ...updatedUser }
-    return Promise.resolve();
+    return Promise.resolve(mockDatabase.users[userIndex]);
   }
 }

@@ -11,7 +11,7 @@ test.group('Forgotten password', () => {
 
     const email = 'jane@example.com'
 
-    const response = await client.post("/forgotten-password").json({
+    const response = await client.post("/api/v1/forgotten-password").json({
       data: { email }
     });
     response.assertStatus(200);
@@ -26,7 +26,7 @@ test.group('Forgotten password', () => {
 
     const email = 'jules.rotschi@example.com';
 
-    const response = await client.post("/forgotten-password").json({
+    const response = await client.post("/api/v1/forgotten-password").json({
       data: { email }
     });
     response.assertStatus(200);

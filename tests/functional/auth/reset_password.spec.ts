@@ -16,7 +16,7 @@ test.group('Reset password', (group) => {
   });
 
   test('unsigned route', async ({ assert, client }) => {
-    const response = await client.post(`/reset-password/${34880}`).json({
+    const response = await client.post(`/api/v1/reset-password/${34880}`).json({
       password: "This is my new password",
       passwordConfirmation: "This is my new password"
     });
@@ -42,8 +42,8 @@ test.group('Reset password', (group) => {
       password: "This is my new password",
       passwordConfirmation: "This is my new password"
     });
-    response.assertRedirectsTo("/password-successfully-reset");
-    const loginResponse = await client.post("/login").json({
+    response.assertRedirectsTo("/api/v1/password-successfully-reset");
+    const loginResponse = await client.post("/api/v1/login").json({
       data: {
         uid: "test-user",
         password: "This is my new password"

@@ -1,15 +1,28 @@
 import UserModel from "#models/user";
 import { UserRepository } from "../../../domain/contracts/repositories/user_repository.js";
 import { User, UserFactory } from "#entities/user";
-import { Email } from "#value_objects/email";
+import { Email, EmailFactory } from "#value_objects/email";
 
 export class LucidUserRepository implements UserRepository {
-  async create(user: User): Promise<void> {
+  async create(user: User) {
+
     const ludicUser = {
       ...user,
       email: user.email.toString(),
-    } 
-    await UserModel.create(ludicUser);
+    }
+    const createdUser = await UserModel.create(ludicUser);
+
+    const userToReturn = new User(
+      createdUser.username,
+      new EmailFactory().create(createdUser.email),
+      createdUser.fullName,
+      createdUser.password
+    );
+    userToReturn.id = createdUser.id;
+    userToReturn.description = createdUser.description ?? undefined;
+    userToReturn.picture = createdUser.picture ?? undefined;
+
+    return userToReturn;
   }
   
   // async getById(id: User["id"]): Promise<User> {
@@ -37,9 +50,21 @@ export class LucidUserRepository implements UserRepository {
     return new UserFactory().create(user);
   }
 
-  async update(userId: User["id"], updatedUser: Partial<User>): Promise<void> {
+  async update(userId: User["id"], userModifications: Partial<User>) {
     const user = await UserModel.findOrFail(userId);
-    return await user.merge(updatedUser).save();    
+    const updatedUser = await user.merge(userModifications).save();
+
+    const userToReturn = new User(
+      updatedUser.username,
+      new EmailFactory().create(updatedUser.email),
+      updatedUser.fullName,
+      updatedUser.password
+    );
+    userToReturn.id = updatedUser.id;
+    userToReturn.description = updatedUser.description ?? undefined;
+    userToReturn.picture = updatedUser.picture ?? undefined;
+    
+    return userToReturn;
   }
 
   // async delete(userId: User["id"]): Promise<void> {

@@ -1,7 +1,7 @@
 import { AuthRepository } from '#contracts/repositories/auth_repository'
 import { UserRepository } from '#contracts/repositories/user_repository'
 import { InMemoryAuthRepository } from '#repositories/auth/in_memory_auth_repository'
-import { FakeUserRepository } from '#repositories/user/fake_user_repository'
+import { InMemoryUserRepository } from '#repositories/user/in_memory_user_repository'
 import { SignupUsecase } from '#usecases/auth/signup_usecase'
 import app from '@adonisjs/core/services/app'
 import { test } from '@japa/runner'
@@ -15,7 +15,7 @@ test.group('Signup usecase', (group) => {
   test('token returned', async ({ assert }) => {
 
     app.container.swap(UserRepository, () => {
-      return new FakeUserRepository()
+      return new InMemoryUserRepository()
     });
 
     app.container.swap(AuthRepository, () => {

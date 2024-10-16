@@ -14,8 +14,9 @@ export class SignupUsecase {
 
   async handle(userToSignup: SignupUserInputDTO) {
     const user = new UserFactory().create(userToSignup);
-    await this.userRepository.create(user);
+    const createdUser = await this.userRepository.create(user);   
     return {
+      user: createdUser,
       token: await this.authRepository.getToken(user.username, user.password)
     }
   }
